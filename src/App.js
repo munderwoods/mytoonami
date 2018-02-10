@@ -39,7 +39,7 @@ function singleEpisodePlaylist(episode, showIntros, showOutros) {
     episode,
     randomVideo(showOutros),
   ].concat(
-      takeRandom(bumps, randInt(3) + 1),
+      takeRandom(bumps, randInt(1) + 1),
   );
 }
 
