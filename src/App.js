@@ -3,42 +3,76 @@ import './App.css';
 import VideoPlayer from './VideoPlayer.js';
 import intros from './intros.js';
 import later from './later.js';
+import genericEarly from './genericEarly.js';
+import genericMiddle from './genericMiddle.js';
+import genericLate from './genericLate.js';
+
 import dragonball from './dragonball/dragonball.js';
 import dragonballBumps from './dragonball/dragonballBumps.js';
 import dragonballIntros from './dragonball/dragonballIntros.js';
 import dragonballOutros from './dragonball/dragonballOutros.js';
 
 
-const compiledPlaylist = playlist(dragonball, dragonballBumps, dragonballIntros, dragonballOutros, intros);
+const bumps = makeBumps(genericEarly, genericMiddle, genericLate, dragonballBumps);
 
-function playlist(show, showBumps, showIntros, showOutros, intros) {
-  let index = 0;
-  let list = [];
-  const intro = intros[Math.floor(Math.random() * 23) + 0];
-  list.push(makePlaylistObject(list.length - 1, intro.title, intro.sources.m4v));
-  for(var i = 0; i < show.length; i++) {
-    const bump = showBumps[Math.floor(Math.random() * 12) + 0];
-    const showIntro = showIntros[Math.floor(Math.random() * 5) + 0];
-    const showOutro = showOutros[Math.floor(Math.random() * 5) + 0]
-    list.push(makePlaylistObject(list.length - 1, showIntro.title, showIntro.sources.m4v))
-    list.push(makePlaylistObject(list.length - 1, show[i].title, show[i].sources.m4v));
-    list.push(makePlaylistObject(list.length - 1, showOutro.title, showOutro.sources.m4v))
-    list.push(makePlaylistObject(list.length - 1, bump.title, bump.sources.m4v));
-  }
-  list.push(makePlaylistObject(list.length -1, later[0].title, later[0].sources.m4v));
-  console.log(list);
-  return list;
+const compiledPlaylist = playlist(dragonball, bumps, dragonballIntros, dragonballOutros, intros);
+console.log(dragonballIntros, dragonballOutros, dragonballBumps, genericEarly);
+console.log(compiledPlaylist);
+
+function makeBumps(g1, g2, g3, s) {
+  return g1.concat(g2, g3, s);
 }
 
-function makePlaylistObject(id, title, source) {
-  return {
-    id: id,
-    title: title,
-    sources: {
-      m4v: source
-    },
-  }
+function randomVideo(videos) {
+  return videos[randInt(videos.length)];
 }
+
+function takeRandom(list, count, result = []) {
+  if(result.length === count) return result;
+  const element = list[randInt(list.length)];
+  const nextList = list.filter(e => e !== element);
+  return takeRandom(nextList, count, [ ...result, element]);
+}
+function singleEpisodePlaylist(episode, showIntros, showOutros) {
+  return [
+    randomVideo(showIntros),
+    episode,
+    randomVideo(showOutros),
+  ].concat(
+      takeRandom(bumps, randInt(3) + 1),
+  );
+}
+
+function playlist(show, bumps, showIntros, showOutros, intros) {
+  return [].concat(
+    randomVideo(intros),
+    [].concat(
+      ...show.map(episode => singleEpisodePlaylist(
+        episode,
+        showIntros,
+        showOutros
+      )),
+    ),
+    later[0],
+  ).map((video, idx) => ({ ...video, id: idx }));
+
+
+ // let index = 0;
+ // let list = [];
+ // list.push(pickVideo(intros, list.length - 1));
+ // for(var i = 0; i < show.length; i++) {
+ //   list.push(pickVideo(showIntros, list.length - 1));
+ //   list.push(makePlaylistObject(i, show[i].title, show[i].sources.m4v));
+ //   list.push(pickVideo(showOutros, list.length -1));
+ // }
+ // list.push(makePlaylistObject(list.length -1, later[0].title, later[0].sources.m4v));
+ // return list;
+}
+
+function randInt(max) {
+  return Math.floor(Math.random() * max);
+}
+
 class App extends Component {
   render() {
     return (

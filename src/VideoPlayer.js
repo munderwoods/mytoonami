@@ -68,7 +68,7 @@ class VideoPlayer extends Component {
       <div className="VideoPlayer">
         <figure id="video_player">
           <div id="video_container">
-            <video controls>
+            <video controls={false} preload="auto">
               <source src={this.props.playlist[0].sources.m4v} type="video/mp4" />
             </video>
           </div>
