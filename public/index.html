@@ -19,9 +19,73 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
+    <title>MyToonami</title>
   </head>
   <body>
+    <script src="https://smartlock.google.com/client"></script>
+    <script> 
+      window.onGoogleYoloLoad = (googleyolo) => {
+        const hintPromise = googleyolo.hint({
+            supportedAuthMethods: [
+              "https://accounts.google.com"
+                ],
+            supportedIdTokenProviders: [
+              {
+                      uri: "https://mytoonami.herokuapp.com",
+                      clientId: "258532163434-9ojtut64kehv62ovrs4qcaal8gaomcsb.apps.googleusercontent.com"
+                    }
+                ]
+        });
+        hintPromise.then((credential) => {
+          console.log(credential);
+					if (credential.id) {
+						// Send the token to your auth backend.
+						useGoogleIdTokenForAuth(credential.idToken);
+					}
+				}, (error) => {
+					switch (error.type) {
+						case "userCanceled":
+							// The user closed the hint selector. Depending on the desired UX,
+							// request manual sign up or do nothing.
+							break;
+						case "noCredentialsAvailable":
+							// No hint available for the session. Depending on the desired UX,
+							// request manual sign up or do nothing.
+							break;
+						case "requestFailed":
+							// The request failed, most likely because of a timeout.
+							// You can retry another time if necessary.
+							break;
+						case "operationCanceled":
+							// The operation was programmatically canceled, do nothing.
+							break;
+						case "illegalConcurrentRequest":
+							// Another operation is pending, this one was aborted.
+							break;
+						case "initializationError":
+							// Failed to initialize. Refer to error.message for debugging.
+							break;
+						case "configurationError":
+							// Configuration error. Refer to error.message for debugging.
+							break;
+						default:
+							// Unknown error, do nothing.
+					}
+				});
+       // const retrievePromise = googleyolo.retrieve({
+       //     supportedAuthMethods: [
+       //           "https://accounts.google.com",
+       //         ],
+       //     supportedIdTokenProviders: [
+       //           {
+       //                   uri: "https://mytoonami.herokuapp.com",
+       //                   clientId: "258532163434-9ojtut64kehv62ovrs4qcaal8gaomcsb.apps.googleusercontent.com"
+       //                 }
+       //         ]
+       // });
+
+        };
+    </script>
     <noscript>
       You need to enable JavaScript to run this app.
     </noscript>

@@ -16,8 +16,6 @@ import dragonballOutros from './dragonball/dragonballOutros.js';
 const bumps = makeBumps(genericEarly, genericMiddle, genericLate, dragonballBumps);
 
 const compiledPlaylist = playlist(dragonball, bumps, dragonballIntros, dragonballOutros, intros);
-console.log(dragonballIntros, dragonballOutros, dragonballBumps, genericEarly);
-console.log(compiledPlaylist);
 
 function makeBumps(g1, g2, g3, s) {
   return g1.concat(g2, g3, s);
@@ -33,6 +31,7 @@ function takeRandom(list, count, result = []) {
   const nextList = list.filter(e => e !== element);
   return takeRandom(nextList, count, [ ...result, element]);
 }
+
 function singleEpisodePlaylist(episode, showIntros, showOutros) {
   return [
     randomVideo(showIntros),
@@ -55,18 +54,6 @@ function playlist(show, bumps, showIntros, showOutros, intros) {
     ),
     later[0],
   ).map((video, idx) => ({ ...video, id: idx }));
-
-
- // let index = 0;
- // let list = [];
- // list.push(pickVideo(intros, list.length - 1));
- // for(var i = 0; i < show.length; i++) {
- //   list.push(pickVideo(showIntros, list.length - 1));
- //   list.push(makePlaylistObject(i, show[i].title, show[i].sources.m4v));
- //   list.push(pickVideo(showOutros, list.length -1));
- // }
- // list.push(makePlaylistObject(list.length -1, later[0].title, later[0].sources.m4v));
- // return list;
 }
 
 function randInt(max) {
@@ -83,4 +70,4 @@ class App extends Component {
   }
 }
 
-export default App;
+ export default App;
