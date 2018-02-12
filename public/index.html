@@ -24,6 +24,14 @@
   <body>
     <script src="https://smartlock.google.com/client"></script>
     <script> 
+      function useGoogleIdTokenForAuth(email){
+				console.log(email);
+        fetch('http://localhost:5000/api/sessions', { 
+          method: 'POST',
+          body: JSON.stringify({"email": email}),
+        });
+      }
+
       window.onGoogleYoloLoad = (googleyolo) => {
         const hintPromise = googleyolo.hint({
             supportedAuthMethods: [
@@ -40,7 +48,7 @@
           console.log(credential);
 					if (credential.id) {
 						// Send the token to your auth backend.
-						useGoogleIdTokenForAuth(credential.idToken);
+						useGoogleIdTokenForAuth(credential.id);
 					}
 				}, (error) => {
 					switch (error.type) {
