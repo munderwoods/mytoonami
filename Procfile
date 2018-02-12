@@ -1,1 +1,1 @@
-web: npm run-stript server
+web: npm run-script server
