@@ -1,28 +1,42 @@
+  body {
+
+  background-image: url("./images/Special/Tumblr_Countdown.png");
+  background-color: black;
+}
+
 .App {
   text-align: center;
+  font-family: 'SF TransRobotics';
+  font-style: italic;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+video {
+	border: 8px double #111;
+  height: 80%;
+  width: 80%;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.Heading {
+height: 175px;
+padding: 10px 0px 0px 0px;
+margin: 20px 0px 0px 0px;
+background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(1,1,1,0) 5%, rgba(1,1,1,0.75) 6%, rgba(1,1,1,0.75) 8%, rgba(1,1,1,0) 9%, rgba(1,1,1,0) 11%, rgba(1,1,1,0.75) 12%, rgba(2,2,2,0.75) 18%, rgba(2,2,2,0) 19%, rgba(3,3,3,0) 25%, rgba(3,3,3,0.75) 26%, rgba(11,11,11,0.75) 75%, rgba(11,11,11,0) 76%, rgba(12,12,12,0) 82%, rgba(12,12,12,0.75) 83%, rgba(13,13,13,0.75) 89%, rgba(13,13,13,0) 90%, rgba(13,13,13,0) 92%, rgba(13,13,13,0.75) 93%, rgba(14,14,14,0.75) 95%, rgba(14,14,14,0) 96%, rgba(15,15,15,0) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%,rgba(1,1,1,0) 5%,rgba(1,1,1,0.75) 6%,rgba(1,1,1,0.75) 8%,rgba(1,1,1,0) 9%,rgba(1,1,1,0) 11%,rgba(1,1,1,0.75) 12%,rgba(2,2,2,0.75) 18%,rgba(2,2,2,0) 19%,rgba(3,3,3,0) 25%,rgba(3,3,3,0.75) 26%,rgba(11,11,11,0.75) 75%,rgba(11,11,11,0) 76%,rgba(12,12,12,0) 82%,rgba(12,12,12,0.75) 83%,rgba(13,13,13,0.75) 89%,rgba(13,13,13,0) 90%,rgba(13,13,13,0) 92%,rgba(13,13,13,0.75) 93%,rgba(14,14,14,0.75) 95%,rgba(14,14,14,0) 96%,rgba(15,15,15,0) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(1,1,1,0) 5%,rgba(1,1,1,0.75) 6%,rgba(1,1,1,0.75) 8%,rgba(1,1,1,0) 9%,rgba(1,1,1,0) 11%,rgba(1,1,1,0.75) 12%,rgba(2,2,2,0.75) 18%,rgba(2,2,2,0) 19%,rgba(3,3,3,0) 25%,rgba(3,3,3,0.75) 26%,rgba(11,11,11,0.75) 75%,rgba(11,11,11,0) 76%,rgba(12,12,12,0) 82%,rgba(12,12,12,0.75) 83%,rgba(13,13,13,0.75) 89%,rgba(13,13,13,0) 90%,rgba(13,13,13,0) 92%,rgba(13,13,13,0.75) 93%,rgba(14,14,14,0.75) 95%,rgba(14,14,14,0) 96%,rgba(15,15,15,0) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000f0f0f',GradientType=0 ); /* IE6-9 */
 }
 
-.App-title {
-  font-size: 1.5em;
+
+h1 {
+  font-size: 72px;
+  -webkit-text-stroke: 3px silver;
+  background: -webkit-linear-gradient(#444, #000);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
+@font-face {
+  font-family: 'SF TransRobotics';
+  src: url('./fonts/transrobotics/sf_transrobotics-webfont.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+   url('./fonts/transrobotics/SF TransRobotics.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
+}  

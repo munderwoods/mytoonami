@@ -64,6 +64,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+
+        <div className="Heading">
+          <h1 padding="0px 0px 0px 0px">MYTOONAMI</h1>
+        </div>
         <VideoPlayer playlist={compiledPlaylist}/>
       </div>
     );

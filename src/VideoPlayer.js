@@ -68,7 +68,9 @@ class VideoPlayer extends Component {
       <div className="VideoPlayer">
         <figure id="video_player">
           <div id="video_container">
-            <video controls={false} preload="auto">
+            <video controls={true} preload="auto"
+              poster={require("./images/2013/toonami_wp_1920x1080_02.jpg")}
+            >
               <source src={this.props.playlist[0].sources.m4v} type="video/mp4" />
             </video>
           </div>
