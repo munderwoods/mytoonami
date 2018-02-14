@@ -8,7 +8,8 @@ class UserBadge extends Component {
   render() {
     return (
           <div className="UserBadge">
-					  <h3 className="UserText">{this.signedIn(this.props.signedIn)}</h3><h3 className="UserName">{this.props.userName}</h3>
+					  <h3 className="UserText">{this.signedIn(this.props.signedIn)}</h3>
+            <h3 className="UserName">{this.props.userName}</h3>
           </div>
     )
   };

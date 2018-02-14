@@ -156,7 +156,7 @@ componentDidMount() {
 					<UserBadge userName={this.state.credential.displayName} signedIn={this.state.signedIn}/>
 				</div>
         <div className="Heading">
-          <h1 padding="0px 0px 0px 0px">MYTOONAMI</h1>
+          <h1 className="HeroHeading">MYTOONAMI</h1>
         </div>
         <VideoPlayer playlist={compiledPlaylist}/>
       </div>

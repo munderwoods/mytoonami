@@ -12,16 +12,17 @@
 
 video {
 	border: 8px double #111;
-  height: 80%;
-  width: 80%;
+  width: 60%;
 }
 
 .UserName {
+  margin: 5px;
 	text-align: right;
 	color: #000066;
   -webkit-text-stroke: 1px silver;
 }
 .UserText {
+  margin: 5px;
 	text-align: right;
 	color: #111;
   -webkit-text-stroke: 1px silver;
@@ -42,14 +43,45 @@ background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(1,1,1,0) 5%,rgba(1,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000f0f0f',GradientType=0 ); /* IE6-9 */
 }
 
-
-h1 {
+.HeroHeading {
 	letter-spacing: 4px;
   font-size: 72px;
   -webkit-text-stroke: 3px silver;
   background: -webkit-linear-gradient(#444, #000);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+	animation-duration: 3s;
+	animation-name: glow;
+	animation-iteration-count: infinite;
+}
+
+@keyframes glow {
+	from {
+  text-shadow:
+    0 0 5px #111,
+    0 0 10px #111,
+    0 0 20px #111,
+    0 0 40px #111,
+    0 0 80px #111;
+	}
+
+	70% {
+  text-shadow:
+    0 0 5px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 40px #fff,
+    0 0 80px #fff;
+	}
+
+  to {
+	text-shadow:
+    0 0 5px #111,
+    0 0 10px #111,
+    0 0 20px #111,
+    0 0 40px #111,
+    0 0 80px #111;
+	}
 }
 
 @font-face {
