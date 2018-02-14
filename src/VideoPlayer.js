@@ -55,7 +55,7 @@ class VideoPlayer extends Component {
 		})
 	})();
 
-  video.addEventListener("playing", function() { video.removeAttribute("poster") }, true );
+  video.addEventListener("playing", function() { video.setAttribute("poster", require("./images/posterblack.jpg")) }, true );
 
   }
 
@@ -70,12 +70,12 @@ class VideoPlayer extends Component {
         <figure id="video_player">
           <div id="video_container">
             <video controls={true} preload="auto"
-              poster={require("./images/2013/toonami_wp_1920x1080_02.jpg")}
+              poster={require("./images/poster.jpg")}
             >
               <source src={this.props.playlist[0].sources.m4v} type="video/mp4" />
             </video>
           </div>
-          <figcaption>
+          <figcaption className="LinkList">
             {linkList}
           </figcaption>
         </figure>

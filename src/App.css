@@ -1,5 +1,4 @@
   body {
-
   background-image: url("./images/background.png");
   background-color: black;
 }
@@ -12,7 +11,8 @@
 
 video {
 	border: 8px double #111;
-  width: 60%;
+  width: 640px;
+  height: 480px;
 }
 
 .UserName {
@@ -29,8 +29,26 @@ video {
 }
 
 .UserBadge {
+  padding: 5px 15px 0px 0px;
+  font-size: 20px;
   display: flex;
   justify-content: flex-end;
+}
+
+a{
+  text-decoration: none;
+  color: #ccc;
+}
+
+.LinkList {
+  padding: 10px 0px 0px 5%;
+  text-align: left;
+  max-height: 1100px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+
 }
 
 .Heading {
