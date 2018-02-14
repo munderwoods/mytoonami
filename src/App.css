@@ -1,6 +1,6 @@
   body {
 
-  background-image: url("./images/Special/Tumblr_Countdown.png");
+  background-image: url("./images/background.png");
   background-color: black;
 }
 
@@ -16,6 +16,22 @@ video {
   width: 80%;
 }
 
+.UserName {
+	text-align: right;
+	color: #000066;
+  -webkit-text-stroke: 1px silver;
+}
+.UserText {
+	text-align: right;
+	color: #111;
+  -webkit-text-stroke: 1px silver;
+}
+
+.UserBadge {
+  display: flex;
+  justify-content: flex-end;
+}
+
 .Heading {
 height: 175px;
 padding: 10px 0px 0px 0px;
@@ -28,6 +44,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 
 h1 {
+	letter-spacing: 4px;
   font-size: 72px;
   -webkit-text-stroke: 3px silver;
   background: -webkit-linear-gradient(#444, #000);

@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 
-
-
 class VideoPlayer extends Component {
 
   componentDidMount() {
@@ -56,12 +54,15 @@ class VideoPlayer extends Component {
 			video.removeAttribute("controls");
 		})
 	})();
+
+  video.addEventListener("playing", function() { video.removeAttribute("poster") }, true );
+
   }
 
   render() {
 
-    var linkList = this.props.playlist.map((video) => {
-      return <a href={video.sources.m4v}>{video.title}</a>;
+    let linkList = this.props.playlist.map((video) => {
+      return <a href={video.sources.m4v}>{video.title} </a>;
     })
 
     return (
