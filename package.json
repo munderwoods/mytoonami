@@ -16,6 +16,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "server": "node server.js"
-  }
+  },
   "homepage": "https://mytoonami.herokuapp.com"
 }
