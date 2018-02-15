@@ -9,10 +9,36 @@
   font-style: italic;
 }
 
-video {
-	border: 8px double #111;
-  width: 640px;
-  height: 480px;
+@media only screen and (min-width : 640px) {
+
+  video {
+    border: 8px double #111;
+    width: 640px;
+    height: 480px;
+  }
+
+  .HeroHeading {
+    letter-spacing: 4px;
+    font-size: 72px;
+    -webkit-text-stroke: 3px silver;
+    background: -webkit-linear-gradient(#444, #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-duration: 3s;
+    animation-name: glow;
+    animation-iteration-count: infinite;
+  }
+
+  .LinkList {
+    padding: 10px 0px 0px 5%;
+    text-align: left;
+    max-height: 1100px;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
 }
 
 .UserName {
@@ -40,17 +66,6 @@ a{
   color: #ccc;
 }
 
-.LinkList {
-  padding: 10px 0px 0px 5%;
-  text-align: left;
-  max-height: 1100px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column;
-  justify-content: space-between;
-
-}
-
 .Heading {
 height: 175px;
 padding: 10px 0px 0px 0px;
@@ -61,17 +76,6 @@ background: linear-gradient(to bottom, rgba(0,0,0,0) 0%,rgba(1,1,1,0) 5%,rgba(1,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#000f0f0f',GradientType=0 ); /* IE6-9 */
 }
 
-.HeroHeading {
-	letter-spacing: 4px;
-  font-size: 72px;
-  -webkit-text-stroke: 3px silver;
-  background: -webkit-linear-gradient(#444, #000);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-	animation-duration: 3s;
-	animation-name: glow;
-	animation-iteration-count: infinite;
-}
 
 @keyframes glow {
 	from {
@@ -107,3 +111,35 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
   src: url('./fonts/transrobotics/sf_transrobotics-webfont.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
    url('./fonts/transrobotics/SF TransRobotics.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }  
+
+@media only screen and (min-device-width : 320px) and (max-device-width : 639px) {
+
+  video {
+    border: 8px double #111;
+    width: 320px;
+    height: 240px;
+  }
+
+  .HeroHeading {
+    letter-spacing: 4px;
+    font-size: 72px;
+    -webkit-text-stroke: 3px silver;
+    background: -webkit-linear-gradient(#444, #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation-duration: 3s;
+    animation-name: glow;
+    animation-iteration-count: infinite;
+  }
+
+
+  .LinkList {
+    max-width: 639px;
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+}

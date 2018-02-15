@@ -76,6 +76,7 @@ class App extends Component {
     }
   }
 componentDidMount() {
+  console.log(window);
       function getUserFromServer(credential){
         fetch('http://localhost:5000/api/sessions', {
           method: 'POST',
