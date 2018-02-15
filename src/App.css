@@ -111,6 +111,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', e
 
 @media only screen and (max-width : 640px) {
 
+  .UserBadge {
+    justify-content: center;
+  }
+
   .Heading {
     height: 130px;
   }
