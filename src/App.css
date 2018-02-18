@@ -1,4 +1,4 @@
-  body {
+body {
   background-image: url("./images/background.png");
   background-color: black;
 }
@@ -37,13 +37,13 @@ video {
   justify-content: space-between;
 }
 
-
 .UserName {
   margin: 5px;
 	text-align: right;
 	color: #000066;
   -webkit-text-stroke: 1px silver;
 }
+
 .UserText {
   margin: 5px;
 	text-align: right;
@@ -58,7 +58,12 @@ video {
   justify-content: flex-end;
 }
 
-a{
+.UserText a {
+  color: #111;
+  -webkit-text-stroke: 1px silver;
+}
+
+a {
   text-decoration: none;
   color: #ccc;
 }

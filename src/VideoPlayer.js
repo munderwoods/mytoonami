@@ -28,8 +28,8 @@ class VideoPlayer extends Component {
 			(function(index){
 				allLnks[i].onclick = function(i){
 					i.preventDefault();
-						for (var i=0; i<lnkNum; i++) {
-							allLnks[i].classList.remove("currentvid");
+						for (var x = 0; x<lnkNum; x++) {
+							allLnks[x].classList.remove("currentvid");
 						}
 					playVid(index);
 				}
@@ -62,7 +62,7 @@ class VideoPlayer extends Component {
   render() {
 
     let linkList = this.props.playlist.map((video) => {
-      return <a href={video.sources.m4v}>{video.title} </a>;
+      return <a key={video.id} href={video.sources.m4v}>{video.title} </a>;
     })
 
     return (
