@@ -5,6 +5,7 @@ import UserBadge from './UserBadge.js';
 
 import { connect } from "react-redux";
 import { loginStarted, loginFulfilled, userToServer } from './actions/loginActions.js';
+import { showSwitchingStarted, showSwitchingFulfilled } from './actions/showActions.js';
 
 import { hint, sendUserToServer } from './googleYolo.js';
 
@@ -28,14 +29,21 @@ function makeBumps(g1, g2, g3, s) {
 }
 
 function randomVideo(videos) {
-  return videos[randInt(videos.length)];
+  return shuffle(videos)[1];
 }
 
-function takeRandom(list, count, result = []) {
-  if(result.length === count) return result;
-  const element = list[randInt(list.length)];
-  const nextList = list.filter(e => e !== element);
-  return takeRandom(nextList, count, [ ...result, element]);
+function shuffle(array) {
+	var tmp, current, top = array.length;
+	if(top) while(--top) {
+		current = Math.floor(Math.random() * (top + 1));
+		tmp = array[current];
+		array[current] = array[top];
+		array[top] = tmp;
+	}
+	return array;
+}
+function takeRandom(list, count) {
+	return shuffle(list).slice(0, count)
 }
 
 function singleEpisodePlaylist(episode, showIntros, showOutros) {
@@ -76,6 +84,7 @@ class Layout extends Component {
   }
 
   componentWillMount() {
+		this.props.onShowSwitchingFulfilled("dragonball");
     this.props.onLoginStart({});
     this.yolo();
 
@@ -85,7 +94,7 @@ class Layout extends Component {
     hint().then(((credential) => {
       this.props.onLoginFulfilled(credential);
       sendUserToServer(credential).then(() => this.props.onSendUserToServer());
-    }).bind(this))
+    }))
   }
 
   render () {
@@ -101,7 +110,7 @@ class Layout extends Component {
         <div className="Heading">
           <h1 className="HeroHeading">MYTOONAMI</h1>
         </div>
-        <VideoPlayer playlist={compiledPlaylist}/>
+        <VideoPlayer playlist={compiledPlaylist} show={dragonball}/>
       </div>
     )
   };
@@ -112,6 +121,9 @@ function mapDispatchToProps(dispatch) {
     onLoginStart: e => dispatch(loginStarted(e)),
     onLoginFulfilled: e => dispatch(loginFulfilled(e)),
     onSendUserToServer: e => dispatch(userToServer(e)),
+		onShowSwitchingStarted: e => dispatch(showSwitchingStarted(e)),
+		onShowSwitchingFulfilled: e => dispatch(showSwitchingFulfilled(e)),
+
   }
 
 }
@@ -122,6 +134,9 @@ function mapStateToProps(store) {
     fetching: store.login.fetching,
     fetched: store.login.fetched,
     signedIn: store.login.loggedIn,
+		show: store.show.show,
+		building: store.show.building,
+		built: store.show.built,
   }
 };
 

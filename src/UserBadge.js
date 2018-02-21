@@ -2,10 +2,10 @@ import React, { Component } from 'react';
 
 class UserBadge extends Component {
   signedIn(bool) {
-    return bool ? "Signed in as: " : <a href="#" onClick={(e) => this.handleClick(e)}>Sign in with Google</a>
+    return bool ? "Signed in as: " : <a href="googleyolo" onClick={(e) => this.handleClick(e)}>Sign in with Google</a>
   }
   handleClick(e) {
-    console.log(e);
+    e.preventDefault();
     this.props.login();
   }
   render() {
