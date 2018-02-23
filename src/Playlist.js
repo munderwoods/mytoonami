@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
-const SortableItem = SortableElement(({value}) => <li className="PlayBox"><a href=" ">{value.title}</a></li>);
+const SortableItem = SortableElement(({value}) => <li className="PlayBox"><a className="PlayBoxAnchor" href=" ">{value.title}</a></li>);
 
 const SortableList = SortableContainer(({items}) => {
   return (
@@ -16,7 +16,7 @@ const SortableList = SortableContainer(({items}) => {
 class Playlist extends Component {
 
   state = {
-    items: this.props.show,
+    items: this.props.showData,
   };
 
   onSortEnd = ({oldIndex, newIndex}) => {

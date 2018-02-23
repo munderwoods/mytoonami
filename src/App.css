@@ -113,10 +113,18 @@ li {
   color: #ccc;
 }
 
+.PlayBoxAnchor{
+  display: block;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 150px;
+  height: 50px;
+}
+
 .PlayBox {
+  background: #00A7E1 url("./images/dragonball.jpg") left -50px/300px 200px no-repeat !important;
   white-space: normal;
   overflow: hidden;
-  font-size: 13px;
+  font-size: 15px;
 	margin: 1px;
 	text-align: left;
   border: 1px double #ccc;

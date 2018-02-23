@@ -64,7 +64,6 @@ class VideoPlayer extends Component {
 
     let linkList = this.props.playlist.map((video) => {
       return <a key={video.id} href={video.sources.m4v}>{video.title} </a>;
-
     })
 
 
@@ -75,11 +74,11 @@ class VideoPlayer extends Component {
             <video controls={true} preload="auto"
               poster={require("./images/poster.jpg")}
             >
-              <source src={this.props.playlist[0].sources.m4v} type="video/mp4" />
+              <source src={this.props.playlist.length > 0 ? this.props.playlist[0].sources.m4v : ""} type="video/mp4" />
             </video>
           </div>
           <figcaption className="LinkList">
-          <Playlist show={this.props.show}/>
+          <Playlist showData={this.props.showData}/>
             {linkList}
           </figcaption>
         </figure>
