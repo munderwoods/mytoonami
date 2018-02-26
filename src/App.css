@@ -28,7 +28,6 @@ video {
 }
 
 .LinkList {
-  padding: 10px 0px 0px 5%;
   text-align: left;
   max-height: 1100px;
   display: flex;
@@ -142,7 +141,7 @@ li {
 	background-color: #red;
 	display: -webkit-box;
 	white-space: nowrap;
-  width: 60%;
+  width: 100%;
 	overflow: auto;
 }
 @font-face {
