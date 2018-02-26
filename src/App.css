@@ -67,6 +67,7 @@ a {
   color: #ccc;
 }
 
+
 .Heading {
 height: 175px;
 padding: 10px 0px 0px 0px;
@@ -113,6 +114,7 @@ li {
 }
 
 .PlayBoxAnchor{
+	padding: 2px 5px;
   display: block;
   background-color: rgba(0, 0, 0, 0.5);
   width: 150px;
@@ -133,17 +135,37 @@ li {
 }
 
 .Helper {
+  border: 1px dashed #ccc;
   font-family: 'SF TransRobotics';
 	font-style: italic; 
 }
 
 .Playlist {
-	background-color: #red;
+  -webkit-padding-start: 0;
+  background-color: rgba(0, 0, 0, 0.5);
 	display: -webkit-box;
 	white-space: nowrap;
   width: 100%;
 	overflow: auto;
 }
+
+.Playlist::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #444;
+}
+
+.Playlist::-webkit-scrollbar
+{
+	height: 6px;
+	background-color: #444;
+}
+
+.Playlist::-webkit-scrollbar-thumb
+{
+	background-color: #111;
+}
+
 @font-face {
   font-family: 'SF TransRobotics';
   src: url('./fonts/transrobotics/sf_transrobotics-webfont.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
