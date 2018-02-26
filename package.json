@@ -29,6 +29,7 @@
   },
   "homepage": "https://mytoonami.herokuapp.com",
   "devDependencies": {
-    "babel-plugin-transform-decorators": "^6.24.1"
+    "babel-plugin-transform-decorators": "^6.24.1",
+    "redux-devtools-extension": "^2.13.2"
   }
 }

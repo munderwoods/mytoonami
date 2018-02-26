@@ -15,22 +15,16 @@ const SortableList = SortableContainer(({items}) => {
 
 class Playlist extends Component {
 
-  state = {
-    items: this.props.showData,
-  };
-
   onSortEnd = ({oldIndex, newIndex}) => {
-    this.setState({
-      items: arrayMove(this.state.items, oldIndex, newIndex),
-    });
-    console.log(this.state.items)
+    console.log(oldIndex, newIndex);
+    this.props.sortShows(this.props.sortablePlaylist, oldIndex, newIndex);
   };
 
 	componentDidMount() {
 }
 
   render() {
-    return <SortableList axis={"x"} helperClass={"Helper"} lockAxis={"x"} items={this.state.items} onSortEnd={this.onSortEnd} />;
+    return <SortableList axis={"x"} helperClass={"Helper"} lockAxis={"x"} items={this.props.sortablePlaylist} onSortEnd={this.onSortEnd} />;
   }
 
 }

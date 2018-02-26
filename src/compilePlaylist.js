@@ -4,17 +4,6 @@ import genericEarly from './genericEarly.js';
 import genericMiddle from './genericMiddle.js';
 import genericLate from './genericLate.js';
 
-import dragonball from './dragonball/dragonball.js';
-import dragonballBumps from './dragonball/dragonballBumps.js';
-import dragonballIntros from './dragonball/dragonballIntros.js';
-import dragonballOutros from './dragonball/dragonballOutros.js';
-
-const bumps = makeBumps(genericEarly, genericMiddle, genericLate, dragonballBumps);
-
-function makeBumps(g1, g2, g3, s) {
-  return g1.concat(g2, g3, s);
-}
-
 function randomVideo(videos) {
   return shuffle(videos)[1];
 }
@@ -34,7 +23,7 @@ function takeRandom(list, count) {
 	return shuffle(list).slice(0, count)
 }
 
-function singleEpisodePlaylist(episode, showIntros, showOutros) {
+function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
   return [
     randomVideo(showIntros),
     episode,
@@ -44,16 +33,42 @@ function singleEpisodePlaylist(episode, showIntros, showOutros) {
   );
 }
 
-function compilePlaylist(show) {
-  const showIntros = dragonballIntros;
-  const showOutros = dragonballOutros;
+function compilePlaylist(show, sortedPlaylist) {
+  console.log(sortedPlaylist);
+  const showIntros = show.showData.intros;
+  const showOutros = show.showData.outros;
+  const showEps = show.showData.episodes;
+	const showBumps = show.showData.bumps;
+	const bumps = showBumps.concat(genericEarly, genericMiddle, genericLate);
   return [].concat(
     randomVideo(intros),
     [].concat(
-      ...show.map(episode => singleEpisodePlaylist(
+      ...showEps.map(episode => singleEpisodePlaylist(
         episode,
         showIntros,
-        showOutros
+        showOutros,
+				bumps
+      )),
+    ),
+    later[0],
+  ).map((video, idx) => ({ ...video, id: idx }));
+}
+
+function recompilePlaylist(show, sortedPlaylist) {
+  console.log(sortedPlaylist);
+  const showIntros = show.showData.intros;
+  const showOutros = show.showData.outros;
+  const showEps = sortedPlaylist;
+	const showBumps = show.showData.bumps;
+	const bumps = showBumps.concat(genericEarly, genericMiddle, genericLate);
+  return [].concat(
+    randomVideo(intros),
+    [].concat(
+      ...showEps.map(episode => singleEpisodePlaylist(
+        episode,
+        showIntros,
+        showOutros,
+				bumps
       )),
     ),
     later[0],
@@ -64,4 +79,4 @@ function randInt(max) {
   return Math.floor(Math.random() * max);
 }
 
-export default compilePlaylist;
+export  { compilePlaylist, recompilePlaylist};

@@ -1,14 +1,18 @@
 import React, { Component } from "react";
-import compilePlaylist from "./compilePlaylist.js"
+import { compilePlaylist} from "./compilePlaylist.js"
+import { recompilePlaylist} from "./compilePlaylist.js"
 
 import VideoPlayer from './VideoPlayer.js';
 import UserBadge from './UserBadge.js';
 import Button from './Button.js';
 
 import { connect } from "react-redux";
+
 import { loginStarted, loginFulfilled, userToServer } from './actions/loginActions.js';
 import { showSwitchingStarted, showSwitchingFulfilled } from './actions/showActions.js';
 import { makePlaylistFulfilled } from './actions/playlistActions.js';
+import { incrementVideoFulfilled } from './actions/currentVideoActions.js';
+import { sortListFulfilled } from './actions/sortableListActions.js';
 
 import { hint, sendUserToServer } from './googleYolo.js';
 
@@ -17,9 +21,8 @@ class Layout extends Component {
     super(props);
     this.yolo=this.yolo.bind(this);
     this.addShow=this.addShow.bind(this);
-  }
-  compilePlaylist() {
-    return compilePlaylist(this.store.show);
+    this.nextVideo=this.nextVideo.bind(this);
+    this.sortShows=this.sortShows.bind(this);
   }
 
   componentDidMount() {
@@ -30,13 +33,24 @@ class Layout extends Component {
     this.yolo();
   }
 
-  addShow(show) {
-    this.props.onShowSwitchingStarted();
-    fetch('http://localhost:5000/api/show/' + show)
+  getShowData(showName) {
+    let data = {};
+    fetch('http://localhost:5000/api/show/' + showName)
       .then(response => response.json())
-      .then(data => this.props.onShowSwitchingFulfilled({show: show, showData: data}))
-      .then(() => this.props.onMakePlaylistFulfilled(compilePlaylist(this.props.showData)));
-      }
+      .then(data => this.props.onShowSwitchingFulfilled({showName: showName, showData: data}))
+      .then(() => this.props.onMakePlaylistFulfilled(compilePlaylist(this.props.show)))
+      .then(() => this.props.onSortListFulfilled({array: this.props.show.showData.episodes, oldIndex:0, newIndex:0}));
+  }
+
+  sortShows(array, oldIndex, newIndex) {
+    this.props.onSortListFulfilled({array: array, oldIndex: oldIndex, newIndex: newIndex});
+    this.props.onMakePlaylistFulfilled(recompilePlaylist(this.props.show, this.props.sortablePlaylist));
+  }
+
+  addShow(showName) {
+   this.props.onShowSwitchingStarted();
+   this.getShowData(showName);
+  }
 
   yolo() {
     hint().then(((credential) => {
@@ -45,8 +59,9 @@ class Layout extends Component {
     }))
   }
 
-  makePlaylist() {
-  }
+	nextVideo() {
+		this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1);
+	}
 
   render () {
     return  (
@@ -61,7 +76,7 @@ class Layout extends Component {
         <div className="Heading">
           <h1 className="HeroHeading">MYTOONAMI</h1>
         </div>
-        <VideoPlayer playlist={this.props.playlist} showData={this.props.showData}/>
+        <VideoPlayer playlist={this.props.playlist} sortablePlaylist={this.props.sortablePlaylist} sortShows={this.sortShows} show={this.props.show} currentVideo={this.props.currentVideo} nextVideo={this.nextVideo}/>
         <Button value={"dragonball"} action={this.addShow}/>
       </div>
     )
@@ -76,6 +91,8 @@ function mapDispatchToProps(dispatch) {
 		onShowSwitchingStarted: e => dispatch(showSwitchingStarted(e)),
 		onShowSwitchingFulfilled: e => dispatch(showSwitchingFulfilled(e)),
     onMakePlaylistFulfilled: e => dispatch(makePlaylistFulfilled(e)),
+		onIncrementVideoFulfilled: e => dispatch(incrementVideoFulfilled(e)),
+    onSortListFulfilled: e => dispatch(sortListFulfilled(e)),
   }
 
 }
@@ -86,11 +103,12 @@ function mapStateToProps(store) {
     fetching: store.login.fetching,
     fetched: store.login.fetched,
     signedIn: store.login.loggedIn,
-		show: store.show.show,
+		show: store.show,
 		building: store.show.building,
 		built: store.show.built,
-    showData: store.show.showData,
     playlist: store.playlist.playlist,
+		currentVideo: store.currentVideo.currentVideo,
+    sortablePlaylist: store.sortableList.sortableList,
   }
 };
 

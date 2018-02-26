@@ -1,5 +1,5 @@
 export default function reducer(state={
-  show: null,
+  showName: null,
   building: false,
   built: false,
   showData: [],
@@ -10,7 +10,7 @@ export default function reducer(state={
     case "SHOW_SWITCHING_REJECTED":
       return {...state, building: false, error: action.payload};
     case "SHOW_SWITCHING_FULFILLED":
-      return {...state, building: false, built: true, show: action.payload.show.show, showData: action.payload.show.showData};
+      return {...state, building: false, built: true, showName: action.payload.show.showName, showData: action.payload.show.showData};
     default:
   };
   return state;
