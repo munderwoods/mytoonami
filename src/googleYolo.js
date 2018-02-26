@@ -32,7 +32,8 @@ export function hint() {
 };
 
 export function sendUserToServer(credential) {
-  return fetch('http://localhost:5000/api/sessions', {
+  console.log(process.env.host);
+  return fetch("https://mytoonami.herokuapp.com:" +( process.env.PORT || 5000) + '/api/sessions', {
     method: 'POST',
     body: JSON.stringify({
       "email": credential.id,
