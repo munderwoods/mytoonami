@@ -35,7 +35,7 @@ class Layout extends Component {
 
   getShowData(showName) {
     let data = {};
-    fetch("https://mytoonami.herokuapp.com:" +( process.env.PORT || 5000) + '/api/show/' + showName)
+    fetch('/api/show/' + showName)
       .then(response => response.json())
       .then(data => this.props.onShowSwitchingFulfilled({showName: showName, showData: data}))
       .then(() => this.props.onMakePlaylistFulfilled(compilePlaylist(this.props.show)))

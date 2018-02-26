@@ -31,5 +31,6 @@
   "devDependencies": {
     "babel-plugin-transform-decorators": "^6.24.1",
     "redux-devtools-extension": "^2.13.2"
-  }
+  },
+  "proxy": "http://localhost:5000"
 }
