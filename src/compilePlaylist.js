@@ -34,7 +34,6 @@ function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
 }
 
 function compilePlaylist(show, sortedPlaylist) {
-  console.log(sortedPlaylist);
   const showIntros = show.showData.intros;
   const showOutros = show.showData.outros;
   const showEps = show.showData.episodes;
@@ -55,7 +54,6 @@ function compilePlaylist(show, sortedPlaylist) {
 }
 
 function recompilePlaylist(show, sortedPlaylist) {
-  console.log(sortedPlaylist);
   const showIntros = show.showData.intros;
   const showOutros = show.showData.outros;
   const showEps = sortedPlaylist;

@@ -32,7 +32,6 @@ export function hint() {
 };
 
 export function sendUserToServer(credential) {
-  console.log(process.env.host);
   return fetch('/api/sessions', {
     method: 'POST',
     body: JSON.stringify({

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Playlist from './Playlist.js';
 
 class VideoPlayer extends Component {
   constructor(props) {
@@ -75,8 +74,6 @@ class VideoPlayer extends Component {
   }
 
   render() {
-    console.log(this.props);
-
     let linkList = this.props.playlist.map((video) => {
       return <a key={video.id} href={video.sources.m4v}>{video.title} </a>;
     })
@@ -97,7 +94,6 @@ class VideoPlayer extends Component {
             </video>
           </div>
           <figcaption className="LinkList">
-            <Playlist sortablePlaylist={this.props.sortablePlaylist} sortShows={this.props.sortShows} />
           </figcaption>
         </figure>
       </div>

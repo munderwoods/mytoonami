@@ -5,6 +5,7 @@ import { recompilePlaylist} from "./compilePlaylist.js"
 import VideoPlayer from './VideoPlayer.js';
 import UserBadge from './UserBadge.js';
 import Button from './Button.js';
+import Playlist from './Playlist.js';
 
 import { connect } from "react-redux";
 
@@ -23,6 +24,7 @@ class Layout extends Component {
     this.addShow=this.addShow.bind(this);
     this.nextVideo=this.nextVideo.bind(this);
     this.sortShows=this.sortShows.bind(this);
+    this.goToVideo=this.goToVideo.bind(this);
   }
 
   componentDidMount() {
@@ -63,6 +65,10 @@ class Layout extends Component {
 		this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1);
 	}
 
+	goToVideo(newVideoTitle) {
+		this.props.onIncrementVideoFulfilled(this.props.playlist.findIndex(x => x.title === newVideoTitle.split("-")[1].trim()))
+	}
+
   render () {
     return  (
       <div className="App">
@@ -76,7 +82,19 @@ class Layout extends Component {
         <div className="Heading">
           <h1 className="HeroHeading">MYTOONAMI</h1>
         </div>
-        <VideoPlayer playlist={this.props.playlist} sortablePlaylist={this.props.sortablePlaylist} sortShows={this.sortShows} show={this.props.show} currentVideo={this.props.currentVideo} nextVideo={this.nextVideo}/>
+        <VideoPlayer
+					playlist={this.props.playlist}
+					sortablePlaylist={this.props.sortablePlaylist}
+					sortShows={this.sortShows}
+					show={this.props.show}
+					currentVideo={this.props.currentVideo}
+					nextVideo={this.nextVideo}
+				/>
+				<Playlist
+					sortablePlaylist={this.props.sortablePlaylist}
+					sortShows={this.sortShows}
+					goToVideo={this.goToVideo}
+				/>
         <Button value={"dragonball"} action={this.addShow}/>
       </div>
     )
