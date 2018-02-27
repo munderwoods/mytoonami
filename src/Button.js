@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 
 class Button extends Component {
   handleClick(e) {
-    this.props.action(this.props.value);
+    e.preventDefault();
+    this.props.action(this.props.showId);
   }
   render() {
     return (
           <div className="Button">
-            <button onClick={() => this.handleClick()}>{this.props.value}</button>
+            <a className="ButtonAnchor" href={this.props.showId} onClick={(e) => this.handleClick(e)}>{this.props.showName}</a>
           </div>
     )
   };
