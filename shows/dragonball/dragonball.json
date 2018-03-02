@@ -1,802 +1,1121 @@
-[
-   {
+{ "name": "Dragon Ball",
+  "id": "dragonball",
+  "episodes": [  
+   {  
       "id":0,
       "show":"dragonball",
       "title":"Secret of the Dragon Balls",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwM18/Dragon%20Ball%20-%20001%20-%20Secret%20of%20the%20Dragon%20Balls.m4v"
       }
    },
-   {
+   {  
       "id":1,
       "show":"dragonball",
       "title":"The Emperor's Quest",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwNF8/Dragon%20Ball%20-%20002%20-%20The%20Emperor%60s%20Quest.m4v"
       }
    },
-   {
+   {  
       "id":2,
       "show":"dragonball",
       "title":"The Nimbus Cloud of Roshi",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwNV8/Dragon%20Ball%20-%20003%20-%20The%20Nimbus%20Cloud%20of%20Roshi.m4v"
       }
    },
-   {
+   {  
       "id":3,
       "show":"dragonball",
       "title":"Oolong the Terrible",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwNl8/Dragon%20Ball%20-%20004%20-%20Oolong%20the%20Terrible.m4v"
       }
    },
-   {
+   {  
       "id":4,
       "show":"dragonball",
       "title":"Yamcha the Desert Bandit",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwN18/Dragon%20Ball%20-%20005%20-%20Yamcha%20the%20Desert%20Bandit.m4v"
       }
    },
-   {
+   {  
       "id":5,
       "show":"dragonball",
       "title":"Keep an Eye on the Dragon Balls",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwOF8/Dragon%20Ball%20-%20006%20-%20Keep%20an%20Eye%20on%20the%20Dragon%20Balls.m4v"
       }
    },
-   {
+   {  
       "id":6,
       "show":"dragonball",
       "title":"The Ox",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIwOV8/Dragon%20Ball%20-%20007%20-%20The%20Ox-King%20on%20Fire%20Mountain.m4v"
       }
    },
-   {
+   {  
       "id":7,
       "show":"dragonball",
       "title":"The Kamehameha Wave",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIxMF8/Dragon%20Ball%20-%20008%20-%20The%20Kamehameha%20Wave.m4v"
       }
    },
-   {
+   {  
       "id":8,
       "show":"dragonball",
       "title":"Boss Rabbit's Magic Touch",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIxNl8/Dragon%20Ball%20-%20009%20-%20Boss%20Rabbit%60s%20Magic%20Touch.m4v"
       }
    },
-   {
+   {  
       "id":9,
       "show":"dragonball",
-      "title":"The Dragon Balls are Stolen%21",
-      "sources":{
+      "title":"The Dragon Balls are Stolen!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIxOV8/Dragon%20Ball%20-%20010%20-%20The%20Dragon%20Balls%20are%20Stolen%21.m4v"
       }
    },
-   {
+   {  
       "id":10,
       "show":"dragonball",
       "title":"The Penalty is Pinball",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyMF8/Dragon%20Ball%20-%20011%20-%20The%20Penalty%20is%20Pinball.m4v"
       }
    },
-   {
+   {  
       "id":11,
       "show":"dragonball",
       "title":"A Wish to the Eternal Dragon",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyMV8/Dragon%20Ball%20-%20012%20-%20A%20Wish%20to%20the%20Eternal%20Dragon.m4v"
       }
    },
-   {
+   {  
       "id":12,
       "show":"dragonball",
       "title":"The Legend of Goku",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyMl8/Dragon%20Ball%20-%20013%20-%20The%20Legend%20of%20Goku.m4v"
       }
    },
-   {
+   {  
       "id":13,
       "show":"dragonball",
       "title":"Goku's Rival",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyM18/Dragon%20Ball%20-%20014%20-%20Goku%60s%20Rival.m4v"
       }
    },
-   {
+   {  
       "id":14,
       "show":"dragonball",
-      "title":"Look Out for Launch%21",
-      "sources":{
+      "title":"Look Out for Launch!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyNF8/Dragon%20Ball%20-%20015%20-%20Look%20Out%20for%20Launch%21.m4v"
       }
    },
-   {
+   {  
       "id":15,
       "show":"dragonball",
       "title":"Find That Stone",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyNV8/Dragon%20Ball%20-%20016%20-%20Find%20That%20Stone.m4v"
       }
    },
-   {
+   {  
       "id":16,
       "show":"dragonball",
       "title":"Milk Delivery",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyNl8/Dragon%20Ball%20-%20017%20-%20Milk%20Delivery.m4v"
       }
    },
-   {
+   {  
       "id":17,
       "show":"dragonball",
       "title":"The Turtle Hermit Way",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyN18/Dragon%20Ball%20-%20018%20-%20The%20Turtle%20Hermit%20Way.m4v"
       }
    },
-   {
+   {  
       "id":18,
       "show":"dragonball",
       "title":"The Tournament Begins",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyOF8/Dragon%20Ball%20-%20019%20-%20The%20Tournament%20Begins.m4v"
       }
    },
-   {
+   {  
       "id":19,
       "show":"dragonball",
       "title":"Elimination Round",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIyOV8/Dragon%20Ball%20-%20020%20-%20Elimination%20Round.m4v"
       }
    },
-   {
+   {  
       "id":20,
       "show":"dragonball",
       "title":"Smells Like Trouble",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzMF8/Dragon%20Ball%20-%20021%20-%20Smells%20Like%20Trouble.m4v"
       }
    },
-   {
+   {  
       "id":21,
       "show":"dragonball",
       "title":"Yamcha versus Jackie Chun",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzMV8/Dragon%20Ball%20-%20022%20-%20Yamcha%20versus%20Jackie%20Chun.m4v"
       }
    },
-   {
+   {  
       "id":22,
       "show":"dragonball",
       "title":"Monster Beast Giran",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzMl8/Dragon%20Ball%20-%20023%20-%20Monster%20Beast%20Giran.m4v"
       }
    },
-   {
+   {  
       "id":23,
       "show":"dragonball",
-      "title":"Krillin's Frantic Attack%21",
-      "sources":{
+      "title":"Krillin's Frantic Attack!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzM18/Dragon%20Ball%20-%20024%20-%20Krillin%60s%20Frantic%20Attack%21.m4v"
       }
    },
-   {
+   {  
       "id":24,
       "show":"dragonball",
-      "title":"The Fearful Aerial Karate Raid%21",
-      "sources":{
+      "title":"The Fearful Aerial Karate Raid!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzNF8/Dragon%20Ball%20-%20025%20-%20The%20Fearful%20Aerial%20Karate%20Raid%21.m4v"
       }
    },
-   {
+   {  
       "id":25,
       "show":"dragonball",
-      "title":"The Great Finals%21",
-      "sources":{
+      "title":"The Great Finals!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzN18/Dragon%20Ball%20-%20026%20-%20The%20Great%20Finals%21.m4v"
       }
    },
-   {
+   {  
       "id":26,
       "show":"dragonball",
       "title":"Goku in the Biggest Crisis",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzOF8/Dragon%20Ball%20-%20027%20-%20Goku%20in%20the%20Biggest%20Crisis.m4v"
       }
    },
-   {
+   {  
       "id":27,
       "show":"dragonball",
-      "title":"Crash%21 Force versus Force%21",
-      "sources":{
+      "title":"Crash! Force versus Force!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDIzOV8/Dragon%20Ball%20-%20028%20-%20Crash%21%20Force%20versus%20Force%21.m4v"
       }
    },
-   {
+   {  
       "id":28,
       "show":"dragonball",
       "title":"The Roaming Lake",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI0MF8/Dragon%20Ball%20-%20029%20-%20The%20Roaming%20Lake.m4v"
       }
    },
-   {
+   {  
       "id":29,
       "show":"dragonball",
       "title":"Pilaf and the Mystery Force",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI0MV8/Dragon%20Ball%20-%20030%20-%20Pilaf%20and%20the%20Mystery%20Force.m4v"
       }
    },
-   {
+   {  
       "id":30,
       "show":"dragonball",
       "title":"Wedding Plans",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI0Ml8/Dragon%20Ball%20-%20031%20-%20Wedding%20Plans.m4v"
       }
    },
-   {
+   {  
       "id":31,
       "show":"dragonball",
-      "title":"The Flying Fortress... Vanished%21",
-      "sources":{
+      "title":"The Flying Fortress... Vanished!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI0NV8/Dragon%20Ball%20-%20032%20-%20The%20Flying%20Fortress...%20Vanished%21.m4v"
       }
    },
-   {
+   {  
       "id":32,
       "show":"dragonball",
       "title":"The Legend of a Dragon",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI0OF8/Dragon%20Ball%20-%20033%20-%20The%20Legend%20of%20a%20Dragon.m4v"
       }
    },
-   {
+   {  
       "id":33,
       "show":"dragonball",
       "title":"Cruel General Red",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI1M18/Dragon%20Ball%20-%20034%20-%20Cruel%20General%20Red.m4v"
       }
    },
-   {
+   {  
       "id":34,
       "show":"dragonball",
       "title":"Cold Reception",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI1NF8/Dragon%20Ball%20-%20035%20-%20Cold%20Reception.m4v"
       }
    },
-   {
+   {  
       "id":35,
       "show":"dragonball",
       "title":"Major Metallitron",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI1NV8/Dragon%20Ball%20-%20036%20-%20Major%20Metallitron.m4v"
       }
    },
-   {
+   {  
       "id":36,
       "show":"dragonball",
-      "title":"Ninja Murasaki Is Coming%21",
-      "sources":{
+      "title":"Ninja Murasaki Is Coming!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI1Nl8/Dragon%20Ball%20-%20037%20-%20Ninja%20Murasaki%20Is%20Coming%21.m4v"
       }
    },
-   {
+   {  
       "id":37,
       "show":"dragonball",
       "title":"Five Murasakis",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI1N18/Dragon%20Ball%20-%20038%20-%20Five%20Murasakis.m4v"
       }
    },
-   {
+   {  
       "id":38,
       "show":"dragonball",
       "title":"Mysterious Android No. 8",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI1OF8/Dragon%20Ball%20-%20039%20-%20Mysterious%20Android%20No.%208.m4v"
       }
    },
-   {
+   {  
       "id":39,
       "show":"dragonball",
       "title":"Horrifying Buyon",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI2MF8/Dragon%20Ball%20-%20040%20-%20Horrifying%20Buyon.m4v"
       }
    },
-   {
+   {  
       "id":40,
       "show":"dragonball",
       "title":"The Fall of Muscle Tower",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI2NF8/Dragon%20Ball%20-%20041%20-%20The%20Fall%20of%20Muscle%20Tower.m4v"
       }
    },
-   {
+   {  
       "id":41,
       "show":"dragonball",
       "title":"The Secret of Dr. Flappe",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI2NV8/Dragon%20Ball%20-%20042%20-%20The%20Secret%20of%20Dr.%20Flappe.m4v"
       }
    },
-   {
+   {  
       "id":42,
       "show":"dragonball",
       "title":"A Trip to the City",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI2Nl8/Dragon%20Ball%20-%20043%20-%20A%20Trip%20to%20the%20City.m4v"
       }
    },
-   {
+   {  
       "id":43,
       "show":"dragonball",
       "title":"Master Thief%2C Hasky",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI2OF8/Dragon%20Ball%20-%20044%20-%20Master%20Thief%2C%20Hasky.m4v"
       }
    },
-   {
+   {  
       "id":44,
       "show":"dragonball",
       "title":"Danger in the Air",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI2OV8/Dragon%20Ball%20-%20045%20-%20Danger%20in%20the%20Air.m4v"
       }
    },
-   {
+   {  
       "id":45,
       "show":"dragonball",
       "title":"Bulma's Bad Day",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI3MF8/Dragon%20Ball%20-%20046%20-%20Bulma%60s%20Bad%20Day.m4v"
       }
    },
-   {
+   {  
       "id":46,
       "show":"dragonball",
       "title":"Kame House",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI3MV8/Dragon%20Ball%20-%20047%20-%20Kame%20House%20-%20Found%21.m4v"
       }
    },
-   {
+   {  
       "id":47,
       "show":"dragonball",
       "title":"Deep Blue Sea",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI3Ml8/Dragon%20Ball%20-%20048%20-%20Deep%20Blue%20Sea.m4v"
       }
    },
-   {
+   {  
       "id":48,
       "show":"dragonball",
       "title":"Roshi Surprise",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI3NF8/Dragon%20Ball%20-%20049%20-%20Roshi%20Surprise.m4v"
       }
    },
-   {
+   {  
       "id":49,
       "show":"dragonball",
       "title":"The Trap Is Sprung",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI3OF8/Dragon%20Ball%20-%20050%20-%20The%20Trap%20Is%20Sprung.m4v"
       }
    },
-   {
+   {  
       "id":50,
       "show":"dragonball",
       "title":"Beware of Robot",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI3OV8/Dragon%20Ball%20-%20051%20-%20Beware%20of%20Robot.m4v"
       }
    },
-   {
+   {  
       "id":51,
       "show":"dragonball",
       "title":"The Pirate Treasure",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI4MV8/Dragon%20Ball%20-%20052%20-%20The%20Pirate%20Treasure.m4v"
       }
    },
-   {
+   {  
       "id":52,
       "show":"dragonball",
       "title":"Blue%2C Black%2C and Blue",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI4M18/Dragon%20Ball%20-%20053%20-%20Blue%2C%20Black%2C%20and%20Blue.m4v"
       }
    },
-   {
+   {  
       "id":53,
       "show":"dragonball",
       "title":"Escape from Pirate Cave",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI4NF8/Dragon%20Ball%20-%20054%20-%20Escape%20from%20Pirate%20Cave.m4v"
       }
    },
-   {
+   {  
       "id":54,
       "show":"dragonball",
       "title":"Penguin Village",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI4NV8/Dragon%20Ball%20-%20055%20-%20Penguin%20Village.m4v"
       }
    },
-   {
+   {  
       "id":55,
       "show":"dragonball",
       "title":"Strange Visitor",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI4OV8/Dragon%20Ball%20-%20056%20-%20Strange%20Visitor.m4v"
       }
    },
-   {
+   {  
       "id":56,
       "show":"dragonball",
       "title":"Arale vs. Blue",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI5MF8/Dragon%20Ball%20-%20057%20-%20Arale%20vs.%20Blue.m4v"
       }
    },
-   {
+   {  
       "id":57,
       "show":"dragonball",
       "title":"The Land of Korin",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI5MV8/Dragon%20Ball%20-%20058%20-%20The%20Land%20of%20Korin.m4v"
       }
    },
-   {
+   {  
       "id":58,
       "show":"dragonball",
       "title":"The Notorious Mercenary",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI5M18/Dragon%20Ball%20-%20059%20-%20The%20Notorious%20Mercenary.m4v"
       }
    },
-   {
+   {  
       "id":59,
       "show":"dragonball",
-      "title":"Tao Attacks%21",
-      "sources":{
+      "title":"Tao Attacks!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDI5NF8/Dragon%20Ball%20-%20060%20-%20Tao%20Attacks%21.m4v"
       }
    },
-   {
+   {  
       "id":60,
       "show":"dragonball",
       "title":"Korin Tower",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDMxMF8/Dragon%20Ball%20-%20061%20-%20Korin%20Tower.m4v"
       }
    },
-   {
+   {  
       "id":61,
       "show":"dragonball",
       "title":"Sacred Water",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDMyMF8/Dragon%20Ball%20-%20062%20-%20Sacred%20Water.m4v"
       }
    },
-   {
+   {  
       "id":62,
       "show":"dragonball",
       "title":"The Return of Goku",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDMyOV8/Dragon%20Ball%20-%20063%20-%20The%20Return%20of%20Goku.m4v"
       }
    },
-   {
+   {  
       "id":63,
       "show":"dragonball",
       "title":"The Last of Mercenary Tao",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDM0NF8/Dragon%20Ball%20-%20064%20-%20The%20Last%20of%20Mercenary%20Tao.m4v"
       }
    },
-   {
+   {  
       "id":64,
       "show":"dragonball",
       "title":"Confront the Red Ribbon Army",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDM0N18/Dragon%20Ball%20-%20065%20-%20Confront%20the%20Red%20Ribbon%20Army.m4v"
       }
    },
-   {
+   {  
       "id":65,
       "show":"dragonball",
       "title":"A Real Bind",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQxM18/Dragon%20Ball%20-%20066%20-%20A%20Real%20Bind.m4v"
       }
    },
-   {
+   {  
       "id":66,
       "show":"dragonball",
       "title":"The End of Commander Red",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQzN18/Dragon%20Ball%20-%20067%20-%20The%20End%20of%20Commander%20Red.m4v"
       }
    },
-   {
+   {  
       "id":67,
       "show":"dragonball",
       "title":"The Last Dragon Ball",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ0Nl8/Dragon%20Ball%20-%20068%20-%20The%20Last%20Dragon%20Ball.m4v"
       }
    },
-   {
+   {  
       "id":68,
       "show":"dragonball",
       "title":"Who Is Fortuneteller Baba",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ0N18/Dragon%20Ball%20-%20069%20-%20Who%20Is%20Fortuneteller%20Baba.m4v"
       }
    },
-   {
+   {  
       "id":69,
       "show":"dragonball",
       "title":"We Are The Five Warriors",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ2MF8/Dragon%20Ball%20-%20070%20-%20We%20Are%20The%20Five%20Warriors.m4v"
       }
    },
-   {
+   {  
       "id":70,
       "show":"dragonball",
       "title":"Deadly Battle",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ2Nl8/Dragon%20Ball%20-%20071%20-%20Deadly%20Battle.m4v"
       }
    },
-   {
+   {  
       "id":71,
       "show":"dragonball",
       "title":"Goku's Turn to Fight",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ3OF8/Dragon%20Ball%20-%20072%20-%20Goku%60s%20Turn%20to%20Fight.m4v"
       }
    },
-   {
+   {  
       "id":72,
       "show":"dragonball",
       "title":"The Devilmite Beam",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ3OV8/Dragon%20Ball%20-%20073%20-%20The%20Devilmite%20Beam.m4v"
       }
    },
-   {
+   {  
       "id":73,
       "show":"dragonball",
       "title":"The Mysterious Fifth Man",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ4MF8/Dragon%20Ball%20-%20074%20-%20The%20Mysterious%20Fifth%20Man.m4v"
       }
    },
-   {
+   {  
       "id":74,
       "show":"dragonball",
       "title":"The Strong Ones",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDQ5MF8/Dragon%20Ball%20-%20075%20-%20The%20Strong%20Ones.m4v"
       }
    },
-   {
+   {  
       "id":75,
       "show":"dragonball",
       "title":"The True Colors of the Masked Man",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDUyMV8/Dragon%20Ball%20-%20076%20-%20The%20True%20Colors%20of%20the%20Masked%20Man.m4v"
       }
    },
-   {
+   {  
       "id":76,
       "show":"dragonball",
       "title":"Pilaf's Tactics",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDU0OF8/Dragon%20Ball%20-%20077%20-%20Pilaf%60s%20Tactics.m4v"
       }
    },
-   {
+   {  
       "id":77,
       "show":"dragonball",
       "title":"The Eternal Dragon Rises",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDU4NV8/Dragon%20Ball%20-%20078%20-%20The%20Eternal%20Dragon%20Rises.m4v"
       }
    },
-   {
+   {  
       "id":78,
       "show":"dragonball",
       "title":"Terror and Plague",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDYyOV8/Dragon%20Ball%20-%20079%20-%20Terror%20and%20Plague.m4v"
       }
    },
-   {
+   {  
       "id":79,
       "show":"dragonball",
       "title":"Goku vs. Sky Dragon",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDY5MF8/Dragon%20Ball%20-%20080%20-%20Goku%20vs.%20Sky%20Dragon.m4v"
       }
    },
-   {
+   {  
       "id":80,
       "show":"dragonball",
       "title":"Goku Goes to Demon Land",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDcxNl8/Dragon%20Ball%20-%20081%20-%20Goku%20Goes%20to%20Demon%20Land.m4v"
       }
    },
-   {
+   {  
       "id":81,
       "show":"dragonball",
       "title":"The Rampage of InoShikaCho",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDcyNV8/Dragon%20Ball%20-%20082%20-%20The%20Rampage%20of%20InoShikaCho.m4v"
       }
    },
-   {
+   {  
       "id":82,
       "show":"dragonball",
       "title":"Which Way to Papaya Island",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDcyN18/Dragon%20Ball%20-%20083%20-%20Which%20Way%20to%20Papaya%20Island.m4v"
       }
    },
-   {
+   {  
       "id":83,
       "show":"dragonball",
       "title":"Rivals and Arrivals",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDcyOF8/Dragon%20Ball%20-%20084%20-%20Rivals%20and%20Arrivals.m4v"
       }
    },
-   {
+   {  
       "id":84,
       "show":"dragonball",
       "title":"Preliminary Peril",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDcyOV8/Dragon%20Ball%20-%20085%20-%20Preliminary%20Peril.m4v"
       }
    },
-   {
+   {  
       "id":85,
       "show":"dragonball",
       "title":"Then There Were Eight",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDczMF8/Dragon%20Ball%20-%20086%20-%20Then%20There%20Were%20Eight.m4v"
       }
    },
-   {
+   {  
       "id":86,
       "show":"dragonball",
       "title":"Yamcha vs. Tien",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDczMV8/Dragon%20Ball%20-%20087%20-%20Yamcha%20vs.%20Tien.m4v"
       }
    },
-   {
+   {  
       "id":87,
       "show":"dragonball",
       "title":"Yamcha's Big Break",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDczMl8/Dragon%20Ball%20-%20088%20-%20Yamcha%60s%20Big%20Break.m4v"
       }
    },
-   {
+   {  
       "id":88,
       "show":"dragonball",
       "title":"Full",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDczM18/Dragon%20Ball%20-%20089%20-%20Full-Moon%20Vengeance.m4v"
       }
    },
-   {
+   {  
       "id":89,
       "show":"dragonball",
       "title":"The Dodon Wave",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDczNF8/Dragon%20Ball%20-%20090%20-%20The%20Dodon%20Wave.m4v"
       }
    },
-   {
+   {  
       "id":90,
       "show":"dragonball",
-      "title":"Counting Controversy%21",
-      "sources":{
+      "title":"Counting Controversy!",
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDczNV8/Dragon%20Ball%20-%20091%20-%20Counting%20Controversy%21.m4v"
       }
    },
-   {
+   {  
       "id":91,
       "show":"dragonball",
       "title":"Goku Enters the Ring",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDc1OV8/Dragon%20Ball%20-%20092%20-%20Goku%20Enters%20the%20Ring.m4v"
       }
    },
-   {
+   {  
       "id":92,
       "show":"dragonball",
       "title":"Tien Shinhan vs. Jackie Chun",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDc5Ml8/Dragon%20Ball%20-%20093%20-%20Tien%20Shinhan%20vs.%20Jackie%20Chun.m4v"
       }
    },
-   {
+   {  
       "id":93,
       "show":"dragonball",
       "title":"Stepping Down",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDgzOF8/Dragon%20Ball%20-%20094%20-%20Stepping%20Down.m4v"
       }
    },
-   {
+   {  
       "id":94,
       "show":"dragonball",
       "title":"Goku vs. Krillin",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDg2M18/Dragon%20Ball%20-%20095%20-%20Goku%20vs.%20Krillin.m4v"
       }
    },
-   {
+   {  
       "id":95,
       "show":"dragonball",
       "title":"Tail's Tale",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDg3N18/Dragon%20Ball%20-%20096%20-%20Tail%60s%20Tale.m4v"
       }
    },
-   {
+   {  
       "id":96,
       "show":"dragonball",
       "title":"Final Match Goku vs. Tien Shinhan",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDg3OF8/Dragon%20Ball%20-%20097%20-%20Final%20Match%20Goku%20vs.%20Tien%20Shinhan.m4v"
       }
    },
-   {
+   {  
       "id":97,
       "show":"dragonball",
       "title":"Victory's Edge",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDg4NF8/Dragon%20Ball%20-%20098%20-%20Victory%60s%20Edge.m4v"
       }
    },
-   {
+   {  
       "id":98,
       "show":"dragonball",
       "title":"Enlightenment",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDg5NF8/Dragon%20Ball%20-%20099%20-%20Enlightenment.m4v"
       }
    },
-   {
+   {  
       "id":99,
       "show":"dragonball",
       "title":"The Spirit Canon",
-      "sources":{
+      "sources":{  
          "m4v":"https://od.lk/s/OTdfNzE3MDk1Ml8/Dragon%20Ball%20-%20100%20-%20The%20Spirit%20Canon.m4v"
       }
+   },
+   {  
+      "id":100,
+      "show":"dragonball",
+      "title":"A New Champion",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTAxMV8/Dragon%20Ball%20-%20101%20-%20A%20New%20Champion.m4v"
+      }
+   },
+   {  
+      "id":101,
+      "show":"dragonball",
+      "title":"Enter King Piccolo",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTA0NF8/Dragon%20Ball%20-%20102%20-%20Enter%20King%20Piccolo.m4v"
+      }
+   },
+   {  
+      "id":102,
+      "show":"dragonball",
+      "title":"Tambourine Attacks!",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTA0OF8/Dragon%20Ball%20-%20103%20-%20Tambourine%20Attacks%21.m4v"
+      }
+   },
+   {  
+      "id":103,
+      "show":"dragonball",
+      "title":"Mark of the Demon",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTA0OV8/Dragon%20Ball%20-%20104%20-%20Mark%20of%20the%20Demon.m4v"
+      }
+   },
+   {  
+      "id":104,
+      "show":"dragonball",
+      "title":"Here Comes Yajirobe",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTA1MF8/Dragon%20Ball%20-%20105%20-%20Here%20Comes%20Yajirobe.m4v"
+      }
+   },
+   {  
+      "id":105,
+      "show":"dragonball",
+      "title":"Terrible Tambourine",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTA3OV8/Dragon%20Ball%20-%20106%20-%20Terrible%20Tambourine.m4v"
+      }
+   },
+   {  
+      "id":106,
+      "show":"dragonball",
+      "title":"Tien's Atonement",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTEwOF8/Dragon%20Ball%20-%20107%20-%20Tien%60s%20Atonement.m4v"
+      }
+   },
+   {  
+      "id":107,
+      "show":"dragonball",
+      "title":"Goku's Revenge",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTE0Nl8/Dragon%20Ball%20-%20108%20-%20Goku%60s%20Revenge.m4v"
+      }
+   },
+   {  
+      "id":108,
+      "show":"dragonball",
+      "title":"Goku vs. King Piccolo",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTIyOV8/Dragon%20Ball%20-%20109%20-%20Goku%20vs.%20King%20Piccolo.m4v"
+      }
+   },
+   {  
+      "id":109,
+      "show":"dragonball",
+      "title":"Piccolo Closes In",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTMzMV8/Dragon%20Ball%20-%20110%20-%20Piccolo%20Closes%20In.m4v"
+      }
+   },
+   {  
+      "id":110,
+      "show":"dragonball",
+      "title":"Roshi's Gambit",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTM1NV8/Dragon%20Ball%20-%20111%20-%20Roshi%60s%20Gambit.m4v"
+      }
+   },
+   {  
+      "id":111,
+      "show":"dragonball",
+      "title":"King Piccolo's Wish",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTM1Nl8/Dragon%20Ball%20-%20112%20-%20King%20Piccolo%60s%20Wish.m4v"
+      }
+   },
+   {  
+      "id":112,
+      "show":"dragonball",
+      "title":"Siege on Chow Castle",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTM1OV8/Dragon%20Ball%20-%20113%20-%20Siege%20on%20Chow%20Castle.m4v"
+      }
+   },
+   {  
+      "id":113,
+      "show":"dragonball",
+      "title":"Conquest and Power",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTM2OV8/Dragon%20Ball%20-%20114%20-%20Conquest%20and%20Power.m4v"
+      }
+   },
+   {  
+      "id":114,
+      "show":"dragonball",
+      "title":"Awaken Darkness",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTQ3OF8/Dragon%20Ball%20-%20115%20-%20Awaken%20Darkness.m4v"
+      }
+   },
+   {  
+      "id":115,
+      "show":"dragonball",
+      "title":"A Taste of Destiny",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTUxNV8/Dragon%20Ball%20-%20116%20-%20A%20Taste%20of%20Destiny.m4v"
+      }
+   },
+   {  
+      "id":116,
+      "show":"dragonball",
+      "title":"The Ultimate Sacrifice",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTUyOF8/Dragon%20Ball%20-%20117%20-%20The%20Ultimate%20Sacrifice.m4v"
+      }
+   },
+   {  
+      "id":117,
+      "show":"dragonball",
+      "title":"Prelude to Vengeance",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTUzMl8/Dragon%20Ball%20-%20118%20-%20Prelude%20to%20Vengeance.m4v"
+      }
+   },
+   {  
+      "id":118,
+      "show":"dragonball",
+      "title":"Battle Cry",
+      "sources":{  
+         "m4v":"https://od.lk/s/OTdfNzE3MTU4M18/Dragon%20Ball%20-%20119%20-%20Battle%20Cry.m4v"
+      }
    }
-]
+],
+  "intros": [
+		 {
+				"id":0,
+				"title":"Back To Dragon Ball 1",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3Ml8/backtodragonball.m4v"
+				}
+		 },
+		 {
+				"id":1,
+				"title":"Back To Dragon Ball 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3M18/backtodragonball2.m4v"
+				}
+		 },
+		 {
+				"id":2,
+				"title":"Dragon Ball Is Next 1",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3NF8/dragonballisnext.m4v"
+				}
+		 },
+		 {
+				"id":3,
+				"title":"Dragon Ball Is Next 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3NV8/dragonballisnext2.m4v"
+				}
+		 },
+		 {
+				"id":4,
+				"title":"Dragon Ball Continues",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3Nl8/dragonballnowcontinues.m4v"
+				}
+		 }
+	],
+  "outros": [
+		 {
+				"id":0,
+				"title":"Dragon Ball Will Return 1",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3N18/dragonballwillreturn.m4v"
+				}
+		 },
+		 {
+				"id":1,
+				"title":"Dragon Ball Will Return 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3OF8/dragonballwillreturn2.m4v"
+				}
+		 },
+		 {
+				"id":2,
+				"title":"Dragon ball Will Return 3",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU3OV8/dragonballwillreturn3.m4v"
+				}
+		 },
+		 {
+				"id":3,
+				"title":"Thats It For Dragon Ball 1",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU4M18/thatsitfordragonball.m4v"
+				}
+		 },
+		 {
+				"id":4,
+				"title":"Thats It For Dragon Ball 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU4NF8/thatsitfordragonball2.m4v"
+				}
+		 }
+	],
+	"bumps": [
+		 {
+				"id":0,
+				"title":"Chronicles Promo",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUxNF8/db-chroniclespromo.m4v"
+				}
+		 },
+		 {
+				"id":1,
+				"title":"Chronicles Promo Short",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUxNV8/db-chroniclesshortpromo.m4v"
+				}
+		 },
+		 {
+				"id":2,
+				"title":"Dragon Ball Promo",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUxN18/db-firstpromo.m4v"
+				}
+		 },
+		 {
+				"id":3,
+				"title":"New Episodes Of Dragon Ball",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUxOF8/db-newep2002.m4v"
+				}
+		 },
+		 {
+				"id":4,
+				"title":"Dragon Ball Promo 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUxOV8/db-promo2.m4v"
+				}
+		 },
+		 {
+				"id":5,
+				"title":"Dragon Ball Intro",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUyMF8/db-season4intro.m4v"
+				}
+		 },
+		 {
+				"id":6,
+				"title":"Season 4 Dragon Ball Promo",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUyMV8/db-season4promo.m4v"
+				}
+		 },
+		 {
+				"id":7,
+				"title":"Short Season 4 Dragon Ball Promo",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUyMV8/db-season4promo.m4v"
+				}
+		 },
+		 {
+				"id":8,
+				"title":"Dragon Ball On Toonami",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUyM18/db-toonami.m4v"
+				}
+		 },
+		 {
+				"id":9,
+				"title":"Dragon ball Promo 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTUxOV8/db-promo2.m4v"
+				}
+		 },
+		 {
+				"id":10,
+				"title":"Silent Lineup 1",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU4MV8/silentlineup.m4v"
+				}
+		 },
+		 {
+				"id":11,
+				"title":"Silent Lineup 2",
+				"sources":{
+					 "m4v":"https://od.lk/s/OTdfNzAyOTU4Ml8/silentlineup2.m4v"
+				}
+		 }
+	]
+} 
+	
+
+	
+ 
