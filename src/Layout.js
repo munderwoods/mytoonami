@@ -96,6 +96,7 @@ class Layout extends Component {
 					goToVideo={this.goToVideo}
 				/>
         <Button showId={"dragonball"} showName={"Dragon Ball"} action={this.addShow}/>
+        <Button showId={"cowboybebop"} showName={"Cowboy Bebop"} action={this.addShow}/>
       </div>
     )
   };

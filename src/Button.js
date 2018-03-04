@@ -7,7 +7,7 @@ class Button extends Component {
   }
   render() {
     return (
-          <div className="Button">
+          <div className={"Button " + this.props.showId}>
             <a className="ButtonAnchor" href={this.props.showId} onClick={(e) => this.handleClick(e)}>{this.props.showName}</a>
           </div>
     )

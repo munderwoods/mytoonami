@@ -134,8 +134,16 @@ li {
 	background-color: #111;
 }
 
-.Button {
+.dragonball {
   background: #00A7E1 url("./images/dragonball.jpg") left -50px/300px 200px no-repeat !important;
+}
+
+.cowboybebop {
+  background: #00A7E1 url("./images/cowboybebop.jpg") left -20px/200px 150px no-repeat !important;
+
+}
+
+.Button {
   white-space: normal;
   overflow: hidden;
   font-size: 23px;

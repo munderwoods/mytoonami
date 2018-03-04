@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
 
 const SortableItem = SortableElement(({value, goToVideo}) =>
-  <li className="PlayBox">
+  <li className={"PlayBox " + value.show}>
     <a
       className="PlayBoxAnchor"
       href=" "

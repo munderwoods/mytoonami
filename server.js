@@ -17,7 +17,7 @@ app.post('/api/sessions', (req, res) => {
 });
 
 app.get('/api/show/:id', (req, res) => {
-  res.sendFile(__dirname + '/shows/' + req.params.id + '/' + req.params.id + '.json');
+  res.sendFile(__dirname + '/shows/' + req.params.id + '.json');
   /*fs.readFile('./shows/' + req.params.id + '/' + req.params.id + '.json', 'utf8', function(err, contents) {
     res.send(contents);
     */
