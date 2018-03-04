@@ -143,6 +143,11 @@ li {
 
 }
 
+.Active {
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+
 .Button {
   white-space: normal;
   overflow: hidden;
@@ -158,8 +163,8 @@ li {
   display: flex;
 	flex-direction: column;
 	justify-content: center;
-
-  background-color: rgba(0, 0, 0, 0.5);
+  -webkit-text-stroke: 1px black;
+  background-color: rgba(0, 0, 0, 0.4);
   width: 150px;
   height: 50px;
 }
@@ -171,6 +176,7 @@ li {
 }
 
 .Playlist {
+  padding-left: 0px;
   -webkit-padding-start: 0;
   background-color: rgba(0, 0, 0, 0.5);
 	display: -webkit-box;

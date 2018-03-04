@@ -14,6 +14,7 @@ import { showSwitchingStarted, showSwitchingFulfilled } from './actions/showActi
 import { makePlaylistFulfilled } from './actions/playlistActions.js';
 import { incrementVideoFulfilled } from './actions/currentVideoActions.js';
 import { sortListFulfilled } from './actions/sortableListActions.js';
+import { addToBroadcastFulfilled, removeFromBroadcastFulfilled } from './actions/broadcastActions.js';
 
 import { hint, sendUserToServer } from './googleYolo.js';
 
@@ -22,6 +23,8 @@ class Layout extends Component {
     super(props);
     this.yolo=this.yolo.bind(this);
     this.addShow=this.addShow.bind(this);
+    this.addToBroadcast=this.addToBroadcast.bind(this);
+    this.removeFromBroadcast=this.removeFromBroadcast.bind(this);
     this.nextVideo=this.nextVideo.bind(this);
     this.sortShows=this.sortShows.bind(this);
     this.goToVideo=this.goToVideo.bind(this);
@@ -47,6 +50,16 @@ class Layout extends Component {
   sortShows(array, oldIndex, newIndex) {
     this.props.onSortListFulfilled({array: array, oldIndex: oldIndex, newIndex: newIndex});
     this.props.onMakePlaylistFulfilled(recompilePlaylist(this.props.show, this.props.sortablePlaylist));
+  }
+
+  addToBroadcast(showName) {
+    console.log(this.props.broadcast);
+    this.props.onAddToBroadcastFulfilled(showName);
+    this.addShow(showName);
+  }
+
+  removeFromBroadcast(showName) {
+    this.props.onRemoveFromBroadcastFulfilled(showName);
   }
 
   addShow(showName) {
@@ -95,8 +108,24 @@ class Layout extends Component {
 					sortShows={this.sortShows}
 					goToVideo={this.goToVideo}
 				/>
-        <Button showId={"dragonball"} showName={"Dragon Ball"} action={this.addShow}/>
-        <Button showId={"cowboybebop"} showName={"Cowboy Bebop"} action={this.addShow}/>
+        <div style={{display: "flex"}}>
+          <Button
+            showId={"dragonball"}
+            showName={"Dragon Ball"}
+            add={this.addToBroadcast}
+            remove={this.removeFromBroadcast}
+            broadcast={this.props.broadcast}
+            active={this.props.broadcast.shows.find((x) => x === "dragonball") ? " Active" : ""}
+          />
+          <Button
+            showId={"cowboybebop"}
+            showName={"Cowboy Bebop"}
+            add={this.addToBroadcast}
+            remove={this.removeFromBroadcast}
+            broadcast={this.props.broadcast}
+            active={this.props.broadcast.shows.find((x) => x === "cowboybebop") ? " Active" : ""}
+          />
+      </div>
       </div>
     )
   };
@@ -112,6 +141,8 @@ function mapDispatchToProps(dispatch) {
     onMakePlaylistFulfilled: e => dispatch(makePlaylistFulfilled(e)),
 		onIncrementVideoFulfilled: e => dispatch(incrementVideoFulfilled(e)),
     onSortListFulfilled: e => dispatch(sortListFulfilled(e)),
+    onAddToBroadcastFulfilled: e => dispatch(addToBroadcastFulfilled(e)),
+    onRemoveFromBroadcastFulfilled: e => dispatch(removeFromBroadcastFulfilled(e)),
   }
 
 }
@@ -128,6 +159,7 @@ function mapStateToProps(store) {
     playlist: store.playlist.playlist,
 		currentVideo: store.currentVideo.currentVideo,
     sortablePlaylist: store.sortableList.sortableList,
+    broadcast: store.broadcast,
   }
 };
 
