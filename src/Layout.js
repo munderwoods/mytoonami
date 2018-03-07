@@ -10,11 +10,15 @@ import Playlist from './Playlist.js';
 import { connect } from "react-redux";
 
 import { loginStarted, loginFulfilled, userToServer } from './actions/loginActions.js';
-import { showSwitchingStarted, showSwitchingFulfilled } from './actions/showActions.js';
-import { makePlaylistFulfilled } from './actions/playlistActions.js';
 import { incrementVideoFulfilled } from './actions/currentVideoActions.js';
-import { sortListFulfilled } from './actions/sortableListActions.js';
-import { addToBroadcastFulfilled, removeFromBroadcastFulfilled } from './actions/broadcastActions.js';
+import {
+  sortList,
+  editPlaylist,
+  addShowData,
+  removeShowData,
+  addToBroadcast,
+  removeFromBroadcast
+} from './actions/broadcastActions.js';
 
 import { hint, sendUserToServer } from './googleYolo.js';
 
@@ -38,33 +42,52 @@ class Layout extends Component {
     this.yolo();
   }
 
+  makeSortableList() {
+    let list = [];
+    let length = 0;
+    //this.props.broadcast.showData.map((x) => list = [...list, ...x.showData.episodes]);
+    for (var i = 0; i < this.props.broadcast.shows.length; i++) {
+      length = length + this.props.broadcast.showData.find(x => x.showData.id === this.props.broadcast.shows[i]).showData.episodes.length;
+    }
+    for (var i = 0; i < length; i++) {
+      for (var x =0; x < this.props.broadcast.shows.length; x++) {
+        if(this.props.broadcast.showData[x].showData.episodes[i]) {
+          list.push(this.props.broadcast.showData[x].showData.episodes[i])
+        }
+      }
+    }
+    console.log(length, list);
+    return list;
+  }
+
   getShowData(showName) {
-    let data = {};
     fetch('/api/show/' + showName)
       .then(response => response.json())
-      .then(data => this.props.onShowSwitchingFulfilled({showName: showName, showData: data}))
-      .then(() => this.props.onMakePlaylistFulfilled(compilePlaylist(this.props.show)))
-      .then(() => this.props.onSortListFulfilled({array: this.props.show.showData.episodes, oldIndex:0, newIndex:0}));
+      .then(data => this.props.onAddShowData({showData: data}))
+      .then(() => this.props.onSortList(
+        {array: this.makeSortableList(), oldIndex:0, newIndex:0}
+      ))
+      .then(() => this.props.onEditPlaylist(compilePlaylist(this.props.broadcast)));
   }
 
   sortShows(array, oldIndex, newIndex) {
     this.props.onSortListFulfilled({array: array, oldIndex: oldIndex, newIndex: newIndex});
-    this.props.onMakePlaylistFulfilled(recompilePlaylist(this.props.show, this.props.sortablePlaylist));
+    this.props.onMakePlaylistFulfilled(
+      recompilePlaylist(this.props.show, this.props.sortablePlaylist)
+    );
   }
 
   addToBroadcast(showName) {
-    console.log(this.props.broadcast);
-    this.props.onAddToBroadcastFulfilled(showName);
+    this.props.onAddToBroadcast(showName);
     this.addShow(showName);
   }
 
   removeFromBroadcast(showName) {
-    this.props.onRemoveFromBroadcastFulfilled(showName);
+    this.props.onRemoveFromBroadcast(showName);
   }
 
   addShow(showName) {
-   this.props.onShowSwitchingStarted();
-   this.getShowData(showName);
+    this.getShowData(showName);
   }
 
   yolo() {
@@ -79,7 +102,9 @@ class Layout extends Component {
 	}
 
 	goToVideo(newVideoTitle) {
-		this.props.onIncrementVideoFulfilled(this.props.playlist.findIndex(x => x.title === newVideoTitle.split("-")[1].trim()))
+    this.props.onIncrementVideoFulfilled(this.props.playlist.findIndex(
+      x => x.title === newVideoTitle.split("-")[1].trim()
+    ))
 	}
 
   render () {
@@ -96,15 +121,15 @@ class Layout extends Component {
           <h1 className="HeroHeading">MYTOONAMI</h1>
         </div>
         <VideoPlayer
-					playlist={this.props.playlist}
-					sortablePlaylist={this.props.sortablePlaylist}
+					playlist={this.props.broadcast.playlist}
+					sortablePlaylist={this.props.broadcast.sortablePlaylist}
 					sortShows={this.sortShows}
-					show={this.props.show}
+					show={this.props.broadcast.shows[0]}
 					currentVideo={this.props.currentVideo}
 					nextVideo={this.nextVideo}
 				/>
 				<Playlist
-					sortablePlaylist={this.props.sortablePlaylist}
+					sortablePlaylist={this.props.broadcast.sortablePlaylist}
 					sortShows={this.sortShows}
 					goToVideo={this.goToVideo}
 				/>
@@ -115,7 +140,12 @@ class Layout extends Component {
             add={this.addToBroadcast}
             remove={this.removeFromBroadcast}
             broadcast={this.props.broadcast}
-            active={this.props.broadcast.shows.find((x) => x === "dragonball") ? " Active" : ""}
+            active={this.props.broadcast.shows.find(
+              (x) => x === "dragonball"
+             )
+              ? " Active"
+              : ""
+            }
           />
           <Button
             showId={"cowboybebop"}
@@ -123,9 +153,14 @@ class Layout extends Component {
             add={this.addToBroadcast}
             remove={this.removeFromBroadcast}
             broadcast={this.props.broadcast}
-            active={this.props.broadcast.shows.find((x) => x === "cowboybebop") ? " Active" : ""}
+            active={this.props.broadcast.shows.find(
+              (x) => x === "cowboybebop"
+             )
+              ? " Active"
+              : ""
+            }
           />
-      </div>
+        </div>
       </div>
     )
   };
@@ -136,13 +171,13 @@ function mapDispatchToProps(dispatch) {
     onLoginStart: e => dispatch(loginStarted(e)),
     onLoginFulfilled: e => dispatch(loginFulfilled(e)),
     onSendUserToServer: e => dispatch(userToServer(e)),
-		onShowSwitchingStarted: e => dispatch(showSwitchingStarted(e)),
-		onShowSwitchingFulfilled: e => dispatch(showSwitchingFulfilled(e)),
-    onMakePlaylistFulfilled: e => dispatch(makePlaylistFulfilled(e)),
 		onIncrementVideoFulfilled: e => dispatch(incrementVideoFulfilled(e)),
-    onSortListFulfilled: e => dispatch(sortListFulfilled(e)),
-    onAddToBroadcastFulfilled: e => dispatch(addToBroadcastFulfilled(e)),
-    onRemoveFromBroadcastFulfilled: e => dispatch(removeFromBroadcastFulfilled(e)),
+    onAddToBroadcast: e => dispatch(addToBroadcast(e)),
+    onRemoveFromBroadcast: e => dispatch(removeFromBroadcast(e)),
+    onAddShowData: e => dispatch(addShowData(e)),
+    onRemoveShowData: e => dispatch(removeShowData(e)),
+    onEditPlaylist: e => dispatch(editPlaylist(e)),
+    onSortList: e => dispatch(sortList(e)),
   }
 
 }
@@ -153,12 +188,9 @@ function mapStateToProps(store) {
     fetching: store.login.fetching,
     fetched: store.login.fetched,
     signedIn: store.login.loggedIn,
-		show: store.show,
-		building: store.show.building,
-		built: store.show.built,
-    playlist: store.playlist.playlist,
+		showData: store.broadcast.showData,
 		currentVideo: store.currentVideo.currentVideo,
-    sortablePlaylist: store.sortableList.sortableList,
+    sortablePlaylist: store.broadcast.sortablePlaylist,
     broadcast: store.broadcast,
   }
 };

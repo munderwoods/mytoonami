@@ -1,4 +1,5 @@
-{  
+{  "name": "Cowboy Bebop",
+   "id": "cowboybebop",
    "episodes":[  
       {  
          "id":0,

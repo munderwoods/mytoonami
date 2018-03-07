@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SortableContainer, SortableElement, arrayMove} from 'react-sortable-hoc';
+import {SortableContainer, SortableElement} from 'react-sortable-hoc';
 
 const SortableItem = SortableElement(({value, goToVideo}) =>
   <li className={"PlayBox " + value.show}>
@@ -27,9 +27,6 @@ const SortableList = SortableContainer(({items, goToVideo}) => {
 });
 
 class Playlist extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   onSortEnd = ({oldIndex, newIndex}) => {
     this.props.sortShows(this.props.sortablePlaylist, oldIndex, newIndex);

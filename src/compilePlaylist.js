@@ -33,20 +33,16 @@ function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
   );
 }
 
-function compilePlaylist(show, sortedPlaylist) {
-  const showIntros = show.showData.intros;
-  const showOutros = show.showData.outros;
-  const showEps = show.showData.episodes;
-	const showBumps = show.showData.bumps;
-	const bumps = showBumps.concat(genericEarly, genericMiddle, genericLate);
+function compilePlaylist(broadcast, sortedPlaylist) {
+	const bumps = genericEarly.concat(genericMiddle, genericLate);
   return [].concat(
     randomVideo(intros),
     [].concat(
-      ...showEps.map(episode => singleEpisodePlaylist(
+      ...broadcast.sortablePlaylist.map(episode => singleEpisodePlaylist(
         episode,
-        showIntros,
-        showOutros,
-				bumps
+        broadcast.showData.find(x => x.showData.id === episode.show).showData.intros,
+        broadcast.showData.find(x => x.showData.id === episode.show).showData.outros,
+        broadcast.showData.find(x => x.showData.id === episode.show).showData.bumps.concat(bumps),
       )),
     ),
     later[0],
