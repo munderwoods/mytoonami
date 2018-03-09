@@ -45,7 +45,6 @@ class Layout extends Component {
   makeSortableList() {
     let list = [];
     let length = 0;
-    //this.props.broadcast.showData.map((x) => list = [...list, ...x.showData.episodes]);
     for (var i = 0; i < this.props.broadcast.shows.length; i++) {
       length = length + this.props.broadcast.showData.find(x => x.showData.id === this.props.broadcast.shows[i]).showData.episodes.length;
     }
@@ -56,7 +55,6 @@ class Layout extends Component {
         }
       }
     }
-    console.log(length, list);
     return list;
   }
 
@@ -71,10 +69,8 @@ class Layout extends Component {
   }
 
   sortShows(array, oldIndex, newIndex) {
-    this.props.onSortListFulfilled({array: array, oldIndex: oldIndex, newIndex: newIndex});
-    this.props.onMakePlaylistFulfilled(
-      recompilePlaylist(this.props.show, this.props.sortablePlaylist)
-    );
+    this.props.onSortList({array: array, oldIndex: oldIndex, newIndex: newIndex});
+    this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
   }
 
   addToBroadcast(showName) {
@@ -84,6 +80,8 @@ class Layout extends Component {
 
   removeFromBroadcast(showName) {
     this.props.onRemoveFromBroadcast(showName);
+    //    this.props.onSortList({array: this.makeSortableList(), oldIndex:0, newIndex:0});
+    //this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
   }
 
   addShow(showName) {
@@ -102,7 +100,7 @@ class Layout extends Component {
 	}
 
 	goToVideo(newVideoTitle) {
-    this.props.onIncrementVideoFulfilled(this.props.playlist.findIndex(
+    this.props.onIncrementVideoFulfilled(this.props.broadcast.playlist.findIndex(
       x => x.title === newVideoTitle.split("-")[1].trim()
     ))
 	}
@@ -123,7 +121,6 @@ class Layout extends Component {
         <VideoPlayer
 					playlist={this.props.broadcast.playlist}
 					sortablePlaylist={this.props.broadcast.sortablePlaylist}
-					sortShows={this.sortShows}
 					show={this.props.broadcast.shows[0]}
 					currentVideo={this.props.currentVideo}
 					nextVideo={this.nextVideo}

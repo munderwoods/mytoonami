@@ -4,8 +4,6 @@ import genericEarly from './genericEarly.js';
 import genericMiddle from './genericMiddle.js';
 import genericLate from './genericLate.js';
 
-
-
 function randomVideo(videos) {
   return shuffle(videos)[1];
 }
@@ -40,12 +38,11 @@ function compilePlaylist(broadcast) {
   return [].concat(
     randomVideo(intros),
     [].concat(
-      ...broadcast.sortablePlaylist.map(
-        episode => singleEpisodePlaylist(
-          episode,
-          broadcast.showData.find(x => x.showData.id === episode.show).showData.intros,
-          broadcast.showData.find(x => x.showData.id === episode.show).showData.outros,
-          broadcast.showData.find(x => x.showData.id === episode.show).showData.bumps.concat(bumps),
+      ...broadcast.sortablePlaylist.map(episode => singleEpisodePlaylist(
+        episode,
+        broadcast.showData.find(x => x.showData.id === episode.show).showData.intros,
+        broadcast.showData.find(x => x.showData.id === episode.show).showData.outros,
+        broadcast.showData.find(x => x.showData.id === episode.show).showData.bumps.concat(bumps),
       )),
     ),
     later[0],
