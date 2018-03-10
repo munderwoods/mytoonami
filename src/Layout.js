@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import { compilePlaylist} from "./compilePlaylist.js"
-import { recompilePlaylist} from "./compilePlaylist.js"
+
+import { compilePlaylist } from "./compilePlaylist.js"
+import { takeByPattern } from "./helpers.js"
 
 import VideoPlayer from './VideoPlayer.js';
 import UserBadge from './UserBadge.js';
@@ -43,19 +44,10 @@ class Layout extends Component {
   }
 
   makeSortableList() {
-    let list = [];
-    let length = 0;
-    for (var i = 0; i < this.props.broadcast.shows.length; i++) {
-      length = length + this.props.broadcast.showData.find(x => x.showData.id === this.props.broadcast.shows[i]).showData.episodes.length;
-    }
-    for (var i = 0; i < length; i++) {
-      for (var x =0; x < this.props.broadcast.shows.length; x++) {
-        if(this.props.broadcast.showData[x].showData.episodes[i]) {
-          list.push(this.props.broadcast.showData[x].showData.episodes[i])
-        }
-      }
-    }
-    return list;
+    return takeByPattern(
+      this.props.broadcast.showData.map(show => show.showData.episodes),
+			this.props.broadcast.shows.map(show => this.props.broadcast.showData.findIndex(showData => show === showData.showData.id))
+		);
   }
 
   getShowData(showName) {
@@ -80,8 +72,6 @@ class Layout extends Component {
 
   removeFromBroadcast(showName) {
     this.props.onRemoveFromBroadcast(showName);
-    //    this.props.onSortList({array: this.makeSortableList(), oldIndex:0, newIndex:0});
-    //this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
   }
 
   addShow(showName) {
