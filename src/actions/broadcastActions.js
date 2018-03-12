@@ -27,7 +27,20 @@ export function loginStarted() {
 }
 
 export function loginFulfilled(userData) {
-  return ({type: "LOGIN_FULFILLED", payload:{credential: {email: userData.results.credential.email, name: userData.results.credential.name, id: userData.results._id}, showData:userData.showData.map(x => JSON.parse(x)), data: userData.results.data}})
+  const showData = userData.showData ? userData.showData.map(x => JSON.parse(x)) : [];
+  const data = userData.data ? userData.data : {shows: [], sortablePlaylist: []};
+  return ({
+    type: "LOGIN_FULFILLED",
+    payload:{
+      credential: {
+        email: userData.credential.email,
+        name: userData.credential.name,
+        id: userData._id
+      },
+      showData: showData,
+      data:data
+    }
+  })
 }
 
 export function incrementVideoFulfilled(nextVideo) {

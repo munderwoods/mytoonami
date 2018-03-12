@@ -78,7 +78,8 @@ class Layout extends Component {
 					updateServer({
 						data: {
 							sortablePlaylist: this.props.broadcast.sortablePlaylist,
-							shows: this.props.broadcast.shows
+							shows: this.props.broadcast.shows,
+              currentVideo: this.props.broadcast.currentVideo
 						},
 						id: this.props.id
 					});
@@ -92,7 +93,15 @@ class Layout extends Component {
 
   sortShows(array, oldIndex, newIndex) {
     this.props.onSortList({array: array, oldIndex: oldIndex, newIndex: newIndex});
-    this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
+    Promise.resolve(this.props.onEditPlaylist(compilePlaylist(this.props.broadcast))).then(() => updateServer({
+        data: {
+          sortablePlaylist: this.props.broadcast.sortablePlaylist,
+          shows: this.props.broadcast.shows,
+          currentVideo: this.props.broadcast.currentVideo
+        },
+        id: this.props.id
+      })
+    )
   }
 
   addToBroadcast(showName) {
@@ -101,7 +110,15 @@ class Layout extends Component {
   }
 
   removeFromBroadcast(showName) {
-    this.props.onRemoveFromBroadcast(showName);
+    Promise.resolve(this.props.onRemoveFromBroadcast(showName)).then(() => updateServer({
+        data: {
+          sortablePlaylist: this.props.broadcast.sortablePlaylist,
+          shows: this.props.broadcast.shows,
+          currentVideo: this.props.broadcast.currentVideo
+        },
+        id: this.props.id
+      })
+    )
   }
 
   addShow(showName) {
@@ -117,13 +134,27 @@ class Layout extends Component {
   }
 
 	nextVideo() {
-		this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1);
+    Promise.resolve(this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1)).then(() => updateServer({
+        data: {
+          sortablePlaylist: this.props.broadcast.sortablePlaylist,
+          shows: this.props.broadcast.shows,
+          currentVideo: this.props.broadcast.currentVideo
+        },
+        id: this.props.id
+      })
+    )
 	}
 
 	goToVideo(newVideoTitle) {
-    this.props.onIncrementVideoFulfilled(this.props.broadcast.playlist.findIndex(
-      x => x.title === newVideoTitle.split("-")[1].trim()
-    ))
+    Promise.resolve(this.props.onIncrementVideoFulfilled(this.props.broadcast.playlist.findIndex(x => x.title === newVideoTitle.split("-")[1].trim()))).then(() => updateServer({
+        data: {
+          sortablePlaylist: this.props.broadcast.sortablePlaylist,
+          shows: this.props.broadcast.shows,
+          currentVideo: this.props.broadcast.currentVideo
+        },
+        id: this.props.id
+      })
+    )
 	}
 
   render () {
