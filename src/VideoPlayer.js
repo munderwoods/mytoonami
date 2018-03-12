@@ -10,6 +10,16 @@ class VideoPlayer extends Component {
   componentDidMount() {
   }
 
+  componentWillReceiveProps(nextProps) {
+    if(this.props.showdata !== nextProps.showData
+      && nextProps.showData.length > 0
+      && this.props.broadcast.fetching !== nextProps.broadcast.fetching
+      && nextProps.broadcast.loggedIn !== this.props.broadcast.loggedIn
+      ) {
+      this.props.autoEditPlaylist();
+    }
+  }
+
   onPlay() {
     this.video.setAttribute("poster", require("./images/posterblack.jpg"));
     this.video.setAttribute("autoPlay", true);

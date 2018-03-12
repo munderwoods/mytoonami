@@ -2,10 +2,6 @@ export function loginStarted() {
   return ({type: "LOGIN_STARTED", payload:{fetching: true}})
 }
 
-export function loginFulfilled(credential) {
-  return ({type: "LOGIN_FULFILLED", payload:{id: credential.id, displayName: credential.displayName}})
-}
-
-export function userToServer(credential) {
-  return ({type: "USER_SENT_TO_SERVER", payload:{userSentToServer: true}})
+export function loginFulfilled(userData) {
+  return ({type: "LOGIN_FULFILLED", payload:{credential: {email: userData.credential.email, name: userData.credential.name, id: userData._id}, data: userData.data}})
 }

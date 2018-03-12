@@ -13,4 +13,11 @@ const takeByPattern = (lists, pattern) => {
   return finalList.filter(element => element);
 }
 
-export { takeByPattern };
+const updateServer = (data) => {
+   return fetch('/api/update', {
+    method: 'POST',
+    body: JSON.stringify(data),
+  }).then((response) => response.json())
+};
+
+export { updateServer, takeByPattern };

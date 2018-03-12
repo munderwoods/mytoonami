@@ -32,12 +32,12 @@ export function hint() {
 };
 
 export function sendUserToServer(credential) {
-  return fetch('/api/sessions', {
+   return fetch('/api/sessions', {
     method: 'POST',
     body: JSON.stringify({
       "email": credential.id,
       "name": credential.displayName
     }),
-  });
+  }).then((response) => response.json())
 };
 

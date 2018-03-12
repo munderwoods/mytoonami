@@ -22,7 +22,7 @@ function shuffle(array) {
 }
 
 function takeRandom(list, count) {
-	return shuffle(list).slice(0, count)
+	return shuffle(list).slice(0, count);
 }
 
 function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
@@ -42,11 +42,12 @@ function compilePlaylist(broadcast) {
     [].concat(
       ...broadcast.sortablePlaylist.map(
         episode => singleEpisodePlaylist(
-          episode,
-          broadcast.showData.find(x => x.showData.id === episode.show).showData.intros,
-          broadcast.showData.find(x => x.showData.id === episode.show).showData.outros,
-          broadcast.showData.find(x => x.showData.id === episode.show).showData.bumps.concat(bumps),
-      )),
+            episode,
+            broadcast.showData.find(x => x.id === episode.show).intros,
+            broadcast.showData.find(x => x.id === episode.show).outros,
+            broadcast.showData.find(x => x.id === episode.show).bumps.concat(bumps),
+          )
+      ),
     ),
     later[0],
   ).map((video, idx) => ({ ...video, id: idx }));

@@ -1,5 +1,5 @@
 export default function reducer(state={
-  credential: {},
+  credential: {credential: {name: ""}},
   fetching: false,
   fetched: false,
   loggedIn: false,
@@ -12,15 +12,14 @@ export default function reducer(state={
     case "LOGIN_REJECTED":
       return {...state, fetching: false, error: action.payload};
     case "LOGIN_FULFILLED":
+    console.log(action.payload);
       return {
         ...state,
         fetching: false,
         fetched: true,
-        credential: action.payload,
+        credential: action.payload.credential,
         loggedIn: true,
       };
-    case "USER_SENT_TO_SERVER":
-      return {...state, userSentToServer: action.payload.userSentToServer};
     default:
   };
   return state;

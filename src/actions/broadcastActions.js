@@ -7,7 +7,7 @@ export function removeFromBroadcast(show) {
 }
 
 export function addShowData(showData) {
-  return ({type: "ADD_SHOW_DATA", payload: {showData: showData}})
+  return ({type: "ADD_SHOW_DATA", payload: {showData: showData.showData}})
 }
 
 export function removeShowData(show) {
@@ -19,5 +19,17 @@ export function editPlaylist(playlist) {
 }
 
 export function sortList(sort) {
-  return ({type: "SORT_LIST", payload: {array: sort.array, oldIndex: sort.oldIndex, newIndex: sort.newIndex}})
+  return ({type: "SORT_LIST", payload: {array: sort.array, oldIndex: sort.oldIndex, newIndex: sort.newIndex, id: sort.id}})
+}
+
+export function loginStarted() {
+  return ({type: "LOGIN_STARTED", payload:{fetching: true}})
+}
+
+export function loginFulfilled(userData) {
+  return ({type: "LOGIN_FULFILLED", payload:{credential: {email: userData.results.credential.email, name: userData.results.credential.name, id: userData.results._id}, showData:userData.showData.map(x => JSON.parse(x)), data: userData.results.data}})
+}
+
+export function incrementVideoFulfilled(nextVideo) {
+  return ({type: "INCREMENT_VIDEO_FULFILLED", payload: nextVideo})
 }

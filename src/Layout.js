@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { compilePlaylist } from "./compilePlaylist.js"
-import { takeByPattern } from "./helpers.js"
+import { updateServer, takeByPattern } from "./helpers.js"
 
 import VideoPlayer from './VideoPlayer.js';
 import UserBadge from './UserBadge.js';
@@ -10,9 +10,10 @@ import Playlist from './Playlist.js';
 
 import { connect } from "react-redux";
 
-import { loginStarted, loginFulfilled, userToServer } from './actions/loginActions.js';
-import { incrementVideoFulfilled } from './actions/currentVideoActions.js';
 import {
+	loginStarted,
+	loginFulfilled,
+	incrementVideoFulfilled,
   sortList,
   editPlaylist,
   addShowData,
@@ -33,6 +34,7 @@ class Layout extends Component {
     this.nextVideo=this.nextVideo.bind(this);
     this.sortShows=this.sortShows.bind(this);
     this.goToVideo=this.goToVideo.bind(this);
+    this.autoEditPlaylist=this.autoEditPlaylist.bind(this);
   }
 
   componentDidMount() {
@@ -45,19 +47,47 @@ class Layout extends Component {
 
   makeSortableList() {
     return takeByPattern(
-      this.props.broadcast.showData.map(show => show.showData.episodes),
-			this.props.broadcast.shows.map(show => this.props.broadcast.showData.findIndex(showData => show === showData.showData.id))
+      this.props.broadcast.showData.map(show => show.episodes),
+			this.props.broadcast.shows.map(show => this.props.broadcast.showData.findIndex(showData => show === showData.id))
 		);
   }
+
+	addShowsData() {
+		if(this.props.broadcast.sortablePlaylist.length > 0) {
+			this.props.broadcast.shows.map(
+				(show) => {
+					fetch('/api/show/' + show)
+						.then(response => response.json())
+						.then(data => this.props.onAddShowData({showData: data}))
+				}
+			)
+		}
+	}
 
   getShowData(showName) {
     fetch('/api/show/' + showName)
       .then(response => response.json())
       .then(data => this.props.onAddShowData({showData: data}))
       .then(() => this.props.onSortList(
-        {array: this.makeSortableList(), oldIndex:0, newIndex:0}
+        {array: this.makeSortableList(), oldIndex:0, newIndex:0, id: this.props.id}
       ))
-      .then(() => this.props.onEditPlaylist(compilePlaylist(this.props.broadcast)));
+      .then(() => {
+				this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
+				if (this.props.id) {
+          console.log('updating db')
+					updateServer({
+						data: {
+							sortablePlaylist: this.props.broadcast.sortablePlaylist,
+							shows: this.props.broadcast.shows
+						},
+						id: this.props.id
+					});
+				};
+			}
+		);
+  }
+  autoEditPlaylist(){
+    this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
   }
 
   sortShows(array, oldIndex, newIndex) {
@@ -79,10 +109,11 @@ class Layout extends Component {
   }
 
   yolo() {
-    hint().then(((credential) => {
-      this.props.onLoginFulfilled(credential);
-      sendUserToServer(credential).then(() => this.props.onSendUserToServer());
-    }))
+    hint()
+			.then(credential => sendUserToServer(credential))
+      .then(userData => {
+        this.props.onLoginFulfilled(userData)
+      })
   }
 
 	nextVideo() {
@@ -111,9 +142,11 @@ class Layout extends Component {
         <VideoPlayer
 					playlist={this.props.broadcast.playlist}
 					sortablePlaylist={this.props.broadcast.sortablePlaylist}
-					show={this.props.broadcast.shows[0]}
 					currentVideo={this.props.currentVideo}
 					nextVideo={this.nextVideo}
+          showData={this.props.broadcast.showData}
+          autoEditPlaylist={this.autoEditPlaylist}
+          broadcast={this.props.broadcast}
 				/>
 				<Playlist
 					sortablePlaylist={this.props.broadcast.sortablePlaylist}
@@ -157,7 +190,6 @@ function mapDispatchToProps(dispatch) {
   return {
     onLoginStart: e => dispatch(loginStarted(e)),
     onLoginFulfilled: e => dispatch(loginFulfilled(e)),
-    onSendUserToServer: e => dispatch(userToServer(e)),
 		onIncrementVideoFulfilled: e => dispatch(incrementVideoFulfilled(e)),
     onAddToBroadcast: e => dispatch(addToBroadcast(e)),
     onRemoveFromBroadcast: e => dispatch(removeFromBroadcast(e)),
@@ -171,12 +203,13 @@ function mapDispatchToProps(dispatch) {
 
 function mapStateToProps(store) {
   return {
-    user: store.login.credential.displayName,
-    fetching: store.login.fetching,
-    fetched: store.login.fetched,
-    signedIn: store.login.loggedIn,
+		id: store.broadcast.credential.id,
+    user: store.broadcast.credential.name,
+    fetching: store.broadcast.fetching,
+    fetched: store.broadcast.fetched,
+    signedIn: store.broadcast.loggedIn,
 		showData: store.broadcast.showData,
-		currentVideo: store.currentVideo.currentVideo,
+		currentVideo: store.broadcast.currentVideo,
     sortablePlaylist: store.broadcast.sortablePlaylist,
     broadcast: store.broadcast,
   }
