@@ -51,8 +51,7 @@ app.post('/api/update', (req, res) => {
 app.get('/api/show/:id', (req, res) => {
   res.sendFile(__dirname + '/shows/' + req.params.id + '.json');
 });
-
-MongoClient.connect('mongodb://munderwoods:Bb12273711@ds263948.mlab.com:63948/mytoonami', (err, client) => {
+MongoClient.connect('mongodb://munderwoods:' + process.env.MLAB_PASS + '@ds263948.mlab.com:63948/mytoonami', (err, client) => {
   if (err) return console.log(err);
   db = client.db('mytoonami');
   console.log("Connected to database: " + db.s.databaseName);
