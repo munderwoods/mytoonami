@@ -211,6 +211,19 @@ class Layout extends Component {
               : ""
             }
           />
+          <Button
+            showId={"ghostintheshell"}
+            showName={"Ghost In The Shell"}
+            add={this.addToBroadcast}
+            remove={this.removeFromBroadcast}
+            broadcast={this.props.broadcast}
+            active={this.props.broadcast.shows.find(
+              (x) => x === "ghostintheshell"
+             )
+              ? " Active"
+              : ""
+            }
+          />
         </div>
       </div>
     )
