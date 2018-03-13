@@ -163,6 +163,7 @@ li {
 	margin: 1px;
   border: 1px double #ccc;
 	width: 150px;
+  min-width: 150px;
 	height: 50px;
 	background-color: #111;
 }
@@ -220,6 +221,7 @@ li {
   display: flex;
   justify-content: center;
   padding: 10px 10%;
+  flex-wrap: wrap;
 
 }
 

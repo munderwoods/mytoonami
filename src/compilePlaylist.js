@@ -26,7 +26,6 @@ function takeRandom(list, count) {
 }
 
 function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
-  console.log(randomVideo(showIntros), showIntros);
   let playlist = [];
     if (showIntros.length > 0) playlist.push(randomVideo(showIntros));
     playlist.push(episode);
