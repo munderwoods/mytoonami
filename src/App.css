@@ -10,7 +10,7 @@ body {
 }
 
 video {
-  border: 8px double #111;
+  background-color: black;
   width: 640px;
   height: 480px;
 }
@@ -142,6 +142,10 @@ li {
   background: #00A7E1 url("./images/ghostintheshell.jpg") no-repeat !important;
 }
 
+.flcl {
+  background: #00A7E1 url("./images/flcl.jpg") no-repeat !important;
+}
+
 .cowboybebop {
   background: #00A7E1 url("./images/cowboybebop.jpg") no-repeat !important;
 
@@ -168,7 +172,7 @@ li {
 	flex-direction: column;
 	justify-content: center;
   -webkit-text-stroke: 1px black;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.0);
   width: 150px;
   height: 50px;
 }
@@ -211,6 +215,13 @@ li {
   src: url('./fonts/transrobotics/sf_transrobotics-webfont.woff') format('woff'), /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
    url('./fonts/transrobotics/SF TransRobotics.ttf') format('truetype'); /* Chrome 4+, Firefox 3.5, Opera 10+, Safari 3—5 */
 }  
+
+.Shows {
+  display: flex;
+  justify-content: center;
+  padding: 10px 10%;
+
+}
 
 @media only screen and (max-width : 640px) {
 

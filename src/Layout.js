@@ -184,7 +184,7 @@ class Layout extends Component {
 					sortShows={this.sortShows}
 					goToVideo={this.goToVideo}
 				/>
-        <div style={{display: "flex"}}>
+        <div className={"Shows"}>
           <Button
             showId={"dragonball"}
             showName={"Dragon Ball"}
@@ -219,6 +219,19 @@ class Layout extends Component {
             broadcast={this.props.broadcast}
             active={this.props.broadcast.shows.find(
               (x) => x === "ghostintheshell"
+             )
+              ? " Active"
+              : ""
+            }
+          />
+          <Button
+            showId={"flcl"}
+            showName={"FLCL"}
+            add={this.addToBroadcast}
+            remove={this.removeFromBroadcast}
+            broadcast={this.props.broadcast}
+            active={this.props.broadcast.shows.find(
+              (x) => x === "flcl"
              )
               ? " Active"
               : ""
