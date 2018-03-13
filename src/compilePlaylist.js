@@ -7,7 +7,7 @@ import genericLate from './genericLate.js';
 
 
 function randomVideo(videos) {
-  return shuffle(videos)[1];
+  return shuffle(videos)[0];
 }
 
 function shuffle(array) {
@@ -26,6 +26,7 @@ function takeRandom(list, count) {
 }
 
 function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
+  console.log(randomVideo(showIntros), showIntros);
   let playlist = [];
     if (showIntros.length > 0) playlist.push(randomVideo(showIntros));
     playlist.push(episode);
