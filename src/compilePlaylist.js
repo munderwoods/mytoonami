@@ -26,12 +26,12 @@ function takeRandom(list, count) {
 }
 
 function singleEpisodePlaylist(episode, showIntros, showOutros, bumps) {
-  return [
-    randomVideo(showIntros),
-    episode,
-    randomVideo(showOutros),
-  ].concat(
-      takeRandom(bumps, randInt(1) + 1),
+  let playlist = [];
+    if (showIntros.length > 0) playlist.push(randomVideo(showIntros));
+    playlist.push(episode);
+    if (showOutros.length > 0) playlist.push(randomVideo(showOutros));
+  return playlist.concat(
+    takeRandom(bumps, randInt(1) + 1),
   );
 }
 
