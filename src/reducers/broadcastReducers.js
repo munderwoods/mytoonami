@@ -1,6 +1,5 @@
 import { arrayMove} from 'react-sortable-hoc';
 import {compilePlaylist} from '../compilePlaylist.js';
-import {updateServer} from '../helpers.js';
 
 export default function reducer(state={
   credential: {credential: {name: ""}},

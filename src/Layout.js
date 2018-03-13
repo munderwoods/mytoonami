@@ -56,7 +56,7 @@ class Layout extends Component {
 		if(this.props.broadcast.sortablePlaylist.length > 0) {
 			this.props.broadcast.shows.map(
 				(show) => {
-					fetch('/api/show/' + show)
+					return fetch('/api/show/' + show)
 						.then(response => response.json())
 						.then(data => this.props.onAddShowData({showData: data}))
 				}
@@ -130,7 +130,7 @@ class Layout extends Component {
 			.then(credential => sendUserToServer(credential))
       .then(userData => {
         this.props.onLoginFulfilled(userData)
-      })
+      }).catch(err => console.log(err));
   }
 
 	nextVideo() {
