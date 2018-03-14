@@ -237,6 +237,19 @@ class Layout extends Component {
               : ""
             }
           />
+          <Button
+            showId={"eighthmsteam"}
+            showName={"Mobile Suit Gundam: The 08th MS Team"}
+            add={this.addToBroadcast}
+            remove={this.removeFromBroadcast}
+            broadcast={this.props.broadcast}
+            active={this.props.broadcast.shows.find(
+              (x) => x === "eighthmsteam"
+             )
+              ? " Active"
+              : ""
+            }
+          />
         </div>
       </div>
     )
