@@ -1,4 +1,5 @@
 /* global googleyolo */
+
 export function hint() {
   return new Promise((resolve, reject) => {
     if(typeof googleyolo === "undefined") {
@@ -38,6 +39,7 @@ export function sendUserToServer(credential) {
       "email": credential.id,
       "name": credential.displayName
     }),
-  }).then((response) => response.json())
+   })
+    .then((response) => response.json())
 };
 

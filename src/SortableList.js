@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
-import {SortableContainer, SortableElement} from 'react-sortable-hoc';
+import React from 'react';
+import {SortableContainer} from 'react-sortable-hoc';
 import SortableItem from './SortableItem.js';
 
-const SortableList = SortableContainer(({broadcast, highlighted, items, goToVideo}) => {
+const SortableList = SortableContainer(({scrollToEpisodeAt, broadcast, highlighted, items, goToVideo}) => {
   return (
     <ul className="Playlist">
       {items.map((value, index) => (
         <SortableItem
+          scrollToEpisodeAt={scrollToEpisodeAt}
           isCurrent= {(value.title === broadcast.currentEpisode.title) ? true : false}
           broadcast={broadcast}
           highlighted={highlighted}

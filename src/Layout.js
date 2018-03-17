@@ -1,7 +1,12 @@
 import React, { Component } from "react";
 
 import { compilePlaylist } from "./compilePlaylist.js"
-import { updateServer, takeByPattern, findCurrentEpisode } from "./helpers.js"
+import {
+  updateServer,
+  takeByPattern,
+  findCurrentEpisode,
+  scrollToCurrentEpisode ,
+} from "./helpers.js"
 
 import VideoPlayer from './VideoPlayer.js';
 import UserBadge from './UserBadge.js';
@@ -39,6 +44,10 @@ class Layout extends Component {
   }
 
   componentDidMount() {
+  }
+
+
+  componentWillReceiveProps(nextProps) {
   }
 
   componentWillMount() {
@@ -89,8 +98,9 @@ class Layout extends Component {
 						id: this.props.id
 					});
 				};
-			}
-      ).then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+			})
+      .then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+      .then(() => scrollToCurrentEpisode(this.props.broadcast))
       .catch(err => console.log(err));
   }
   autoEditPlaylist(){
@@ -141,12 +151,15 @@ class Layout extends Component {
 			.then(credential => sendUserToServer(credential))
       .then(userData => {
         this.props.onLoginFulfilled(userData)
-      }).catch(err => console.log(err));
+      })
+      .then(() => scrollToCurrentEpisode(this.props.broadcast))
+      .catch(err => console.log(err));
   }
 
 	nextVideo() {
     Promise.resolve(this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1))
       .then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+      .then(() => this.autoScroll())
       .then(() => updateServer({
         data: {
           sortablePlaylist: this.props.broadcast.sortablePlaylist,
@@ -180,6 +193,18 @@ class Layout extends Component {
     )
 	}
 
+  autoScroll() {
+    const playlistElement = document.getElementsByClassName("Playlist")[0];
+    const currentEpisodeElement = document.getElementsByClassName("Highlighted")[0]
+    if(this.props.broadcast.currentEpisode.title && (this.props.broadcast.currentEpisode.title === this.props.broadcast.lastEpisode.title)) {
+      playlistElement.scrollLeft = currentEpisodeElement.offsetLeft - 5;
+    }
+  }
+
+  scrollToEpisodeAt(element, position) {
+    element.scrollLeft = position - 7;
+  }
+
   render () {
     return  (
       <div className="App">
@@ -203,6 +228,8 @@ class Layout extends Component {
           broadcast={this.props.broadcast}
 				/>
 				<Playlist
+          ref={(playlistElement) => { this.playlistElement = playlistElement; }}
+          scrollToEpisodeAt={this.scrollToEpisodeAt}
           broadcast={this.props.broadcast}
 					sortablePlaylist={this.props.broadcast.sortablePlaylist}
 					sortShows={this.sortShows}

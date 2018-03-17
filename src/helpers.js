@@ -20,6 +20,15 @@ const updateServer = (data) => {
   }).then((response) => response.json())
 };
 
+const scrollToCurrentEpisode = (broadcast) => {
+    const playlistElement = document.getElementsByClassName("Playlist")[0];
+    const currentEpisodeElement = document.getElementsByClassName("Highlighted")[0]
+    if(broadcast.currentEpisode.title) {
+      playlistElement.scrollLeft = currentEpisodeElement.offsetLeft - 5;
+    }
+
+  }
+
 const findCurrentEpisode = (broadcast) => {
   let episode = {};
   for(let i = 0; i < 4; i++) {
@@ -32,4 +41,4 @@ const findCurrentEpisode = (broadcast) => {
   return episode;
 }
 
-export { findCurrentEpisode, updateServer, takeByPattern };
+export {scrollToCurrentEpisode, findCurrentEpisode, updateServer, takeByPattern };
