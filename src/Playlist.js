@@ -1,30 +1,6 @@
 import React, {Component} from 'react';
 import {SortableContainer, SortableElement} from 'react-sortable-hoc';
-
-const SortableItem = SortableElement(({value, goToVideo}) =>
-  <li className={"PlayBox " + value.show}>
-    <a
-      className="PlayBoxAnchor"
-      href=" "
-      onClick={(e) => {
-        e.preventDefault();
-        const title = e.currentTarget.textContent;
-        goToVideo(title)
-      }}
-    >
-      {(value.id +1) + " - " + value.title}
-    </a>
-  </li>);
-
-const SortableList = SortableContainer(({items, goToVideo}) => {
-  return (
-    <ul className="Playlist">
-      {items.map((value, index) => (
-        <SortableItem  key={`item-${index}`} goToVideo={goToVideo} index={index} value={value} />
-      ))}
-    </ul>
-  );
-});
+import SortableList from './SortableList.js';
 
 class Playlist extends Component {
 
@@ -34,6 +10,8 @@ class Playlist extends Component {
 
   render() {
     return <SortableList
+        broadcast={this.props.broadcast}
+        highlighted={this.props.highlighted}
         goToVideo={this.props.goToVideo}
         axis={"x"}
         helperClass={"Helper"}

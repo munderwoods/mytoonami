@@ -43,6 +43,11 @@ export function loginFulfilled(userData) {
   })
 }
 
+export function setCurrentEpisode(episode) {
+  console.log("SETTING")
+  return ({type: "SET_CURRENT_EPISODE", payload: episode})
+}
+
 export function incrementVideoFulfilled(nextVideo) {
   return ({type: "INCREMENT_VIDEO_FULFILLED", payload: nextVideo})
 }

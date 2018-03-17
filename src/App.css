@@ -126,12 +126,13 @@ li {
   white-space: normal;
   overflow: hidden;
   font-size: 15px;
-	margin: 1px;
+	margin: 8px 3px 2px 3px;
 	text-align: left;
   border: 1px double #ccc;
 	width: 150px;
 	height: 50px;
 	background-color: #111;
+  transition: border 1s, box-shadow 1s, -webkit-box-shadow 1s, ease-out;
 }
 
 .dragonball {
@@ -156,6 +157,12 @@ li {
 
 }
 
+.Highlighted {
+    border: 1px double cyan;
+    box-shadow: 0px 0px 10px cyan;
+    -webkit-box-shadow: 0px 0px 10px cyan;
+}
+
 .Active {
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
@@ -171,6 +178,7 @@ li {
   min-width: 150px;
 	height: 50px;
 	background-color: #111;
+  transition: all 1s ease-out;
 }
 
 .ButtonAnchor{
@@ -225,7 +233,7 @@ li {
 .Shows {
   display: flex;
   justify-content: center;
-  padding: 10px 10%;
+  padding: 10px 5%;
   flex-wrap: wrap;
 
 }

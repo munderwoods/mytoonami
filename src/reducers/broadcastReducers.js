@@ -1,5 +1,6 @@
 import { arrayMove} from 'react-sortable-hoc';
 import {compilePlaylist} from '../compilePlaylist.js';
+import {findCurrentEpisode} from '../helpers.js';
 
 export default function reducer(state={
   credential: {credential: {name: ""}},
@@ -13,12 +14,14 @@ export default function reducer(state={
   playlist: [],
   sortablePlaylist: [],
   currentVideo: 0,
+  currentEpisode: {},
 }, action) {
   switch(action.type) {
     case "LOGIN_STARTED":
       return {...state, fetching: true};
     case "LOGIN_FULFILLED":
-      const currentVideo = action.payload.data.currentVideo !== undefined ? action.payload.data.currentVideo : 0;
+      const currentVideo =
+        action.payload.data.currentVideo !== undefined ? action.payload.data.currentVideo : 0;
       return {
         ...state,
         fetching: false,
@@ -49,10 +52,13 @@ export default function reducer(state={
     case "EDIT_PLAYLIST":
       return {...state, playlist: action.payload};
     case "SORT_LIST":
-      return {...state, sortablePlaylist: arrayMove(action.payload.array, action.payload.oldIndex, action.payload.newIndex)};
+      return {
+        ...state,
+        sortablePlaylist:
+          arrayMove(action.payload.array, action.payload.oldIndex, action.payload.newIndex)};
+    case "SET_CURRENT_EPISODE":
+      return {...state, currentEpisode: action.payload};
     case "INCREMENT_VIDEO_FULFILLED":
-      return {...state, currentVideo: action.payload};
-    default:
-  };
+      return {...state, currentVideo: action.payload}; default: };
   return state;
 };

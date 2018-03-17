@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { compilePlaylist } from "./compilePlaylist.js"
-import { updateServer, takeByPattern } from "./helpers.js"
+import { updateServer, takeByPattern, findCurrentEpisode } from "./helpers.js"
 
 import VideoPlayer from './VideoPlayer.js';
 import UserBadge from './UserBadge.js';
@@ -19,7 +19,8 @@ import {
   addShowData,
   removeShowData,
   addToBroadcast,
-  removeFromBroadcast
+  removeFromBroadcast,
+  setCurrentEpisode
 } from './actions/broadcastActions.js';
 
 import { hint, sendUserToServer } from './googleYolo.js';
@@ -48,7 +49,11 @@ class Layout extends Component {
   makeSortableList() {
     return takeByPattern(
       this.props.broadcast.showData.map(show => show.episodes),
-			this.props.broadcast.shows.map(show => this.props.broadcast.showData.findIndex(showData => show === showData.id))
+      this.props.broadcast.shows.map(
+        show => this.props.broadcast.showData.findIndex(
+          showData => show === showData.id
+        )
+      )
 		);
   }
 
@@ -85,15 +90,19 @@ class Layout extends Component {
 					});
 				};
 			}
-		);
+      ).then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+      .catch(err => console.log(err));
   }
   autoEditPlaylist(){
-    this.props.onEditPlaylist(compilePlaylist(this.props.broadcast));
+    Promise.resolve(this.props.onEditPlaylist(compilePlaylist(this.props.broadcast)))
+      .then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
   }
 
   sortShows(array, oldIndex, newIndex) {
     this.props.onSortList({array: array, oldIndex: oldIndex, newIndex: newIndex});
-    Promise.resolve(this.props.onEditPlaylist(compilePlaylist(this.props.broadcast))).then(() => updateServer({
+    Promise.resolve(this.props.onEditPlaylist(compilePlaylist(this.props.broadcast)))
+      .then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+      .then(() => updateServer({
         data: {
           sortablePlaylist: this.props.broadcast.sortablePlaylist,
           shows: this.props.broadcast.shows,
@@ -110,7 +119,9 @@ class Layout extends Component {
   }
 
   removeFromBroadcast(showName) {
-    Promise.resolve(this.props.onRemoveFromBroadcast(showName)).then(() => updateServer({
+    Promise.resolve(this.props.onRemoveFromBroadcast(showName))
+      .then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+      .then(() => updateServer({
         data: {
           sortablePlaylist: this.props.broadcast.sortablePlaylist,
           shows: this.props.broadcast.shows,
@@ -134,7 +145,9 @@ class Layout extends Component {
   }
 
 	nextVideo() {
-    Promise.resolve(this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1)).then(() => updateServer({
+    Promise.resolve(this.props.onIncrementVideoFulfilled(this.props.currentVideo + 1))
+      .then(() => this.props.onSetCurrentEpisode(findCurrentEpisode(this.props.broadcast)))
+      .then(() => updateServer({
         data: {
           sortablePlaylist: this.props.broadcast.sortablePlaylist,
           shows: this.props.broadcast.shows,
@@ -146,7 +159,17 @@ class Layout extends Component {
 	}
 
 	goToVideo(newVideoTitle) {
-    Promise.resolve(this.props.onIncrementVideoFulfilled(this.props.broadcast.playlist.findIndex(x => x.title === newVideoTitle.split("-")[1].trim()))).then(() => updateServer({
+    Promise.resolve(
+      this.props.onIncrementVideoFulfilled(
+        this.props.broadcast.playlist.findIndex(
+          x => x.title === newVideoTitle.split("-")[1].trim()
+        )
+      )
+    )
+      .then(() => this.props.onSetCurrentEpisode(
+        findCurrentEpisode(this.props.broadcast)
+      ))
+      .then(() => updateServer({
         data: {
           sortablePlaylist: this.props.broadcast.sortablePlaylist,
           shows: this.props.broadcast.shows,
@@ -180,6 +203,7 @@ class Layout extends Component {
           broadcast={this.props.broadcast}
 				/>
 				<Playlist
+          broadcast={this.props.broadcast}
 					sortablePlaylist={this.props.broadcast.sortablePlaylist}
 					sortShows={this.sortShows}
 					goToVideo={this.goToVideo}
@@ -267,8 +291,8 @@ function mapDispatchToProps(dispatch) {
     onRemoveShowData: e => dispatch(removeShowData(e)),
     onEditPlaylist: e => dispatch(editPlaylist(e)),
     onSortList: e => dispatch(sortList(e)),
+    onSetCurrentEpisode: e => dispatch(setCurrentEpisode(e)),
   }
-
 }
 
 function mapStateToProps(store) {

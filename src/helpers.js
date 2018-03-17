@@ -20,4 +20,16 @@ const updateServer = (data) => {
   }).then((response) => response.json())
 };
 
-export { updateServer, takeByPattern };
+const findCurrentEpisode = (broadcast) => {
+  let episode = {};
+  for(let i = 0; i < 4; i++) {
+    if(broadcast.playlist.length > 2) {
+      if(broadcast.sortablePlaylist.find(ep => ep.title === broadcast.playlist[broadcast.currentVideo + i].title)) {
+        episode = broadcast.sortablePlaylist.find(ep => ep.title === broadcast.playlist[broadcast.currentVideo + i].title);
+      }
+    }
+  }
+  return episode;
+}
+
+export { findCurrentEpisode, updateServer, takeByPattern };
